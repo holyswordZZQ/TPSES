@@ -1,18 +1,21 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtCore import QFile
-from PySide6.QtGui import Qt
+from PySide6.QtCore import QFile, QSize
+from PySide6.QtGui import Qt, QPixmap, QPicture
 from controller.operateTeacherInfo import operateTeacherInfo
 from view.showPerforWindow import showPerforWindow
 
 class teacherInfoWindow:  # 二级功能界面设计
     def __init__(self,addInfoWindow,modifyInfoWindow,addPerforWindow):
         self.ot=operateTeacherInfo()
-        self.ui = QUiLoader().load('resources/ui/jiemian_2.ui')
+        self.ui = QUiLoader().load('resources/ui/jiemian2.ui')
         self.addInfoWindow=addInfoWindow
         self.modifyInfoWindow=modifyInfoWindow
         self.addPerforWindow=addPerforWindow
         self.showperforwindow=None
+        self.image=QPixmap()
+        self.image.load('resources/images/teacherInfoWindow.png')
+        self.ui.imageLabel.setPixmap(self.image)
 
         self.data=self.ot.getTeacherInfo()
         self.show_all_information()
@@ -28,7 +31,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.search_text.returnPressed.connect(self.search_person)  # 设置回车连接
 
         # 设置重置按钮
-        self.ui.shuaxin_button.clicked.connect(self.show_all_information)
+        #self.ui.shuaxin_button.clicked.connect(self.show_all_information)
 
         # 设置新增按钮
         self.ui.add_account_button.clicked.connect(self.goToAdd)
@@ -36,7 +39,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         # 设置修改按钮
         self.ui.modify_account_button.clicked.connect(self.goTomodify)
         self.ui.refreshButton.clicked.connect(self.refresh)
-        self.ui.addperformanceButton.clicked.connect(self.goToAddPer)
+        #self.ui.addperformanceButton.clicked.connect(self.goToAddPer)
         self.ui.searchButton.clicked.connect(self.search)
 
     def show_all_information(self):
