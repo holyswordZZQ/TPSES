@@ -89,15 +89,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.data=self.ot.getTeacherByAttribute(selectFilter)
         self.show_all_information()
 
-    # def addPerformance(self):   #添加履历信息界面
-    #     addperformancewindow.ui.show()
-    # def tiaozhuan(self):
-    #     for i in self.ui.table.selectedItems():
-    #         global m
-    #         m=i.text()
-    #         global allinformation
-    #         allinformation=allInformation()
-    #         allinformation.ui.show()
+
     def getSelectedRanges(self):
         listItem=self.ui.table.selectedItems()
         selectedItem=[]

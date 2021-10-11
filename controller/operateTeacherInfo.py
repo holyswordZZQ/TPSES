@@ -4,7 +4,9 @@ import os
 class operateTeacherInfo:
     def __init__(self):
         self.list=[]
-        #self.id=0
+
+
+#获取所有老师的信息
     def getTeacherInfo(self):
         self.list=readALLTeacherInfo()
         specTeacherInfo=[]
@@ -18,11 +20,12 @@ class operateTeacherInfo:
             specTeacherInfo.append(self.list[i].get('performance'))
             specTeacherInfo.append(self.list[i].get('time'))
             lspecTeacherInfo.append(specTeacherInfo)
-            specTeacherInfo=[]
+            specTeachherInfo=[]
 
         return lspecTeacherInfo
 # getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
 
+#通过ID获取特定一个老师的信息
     def getTeacherInfoDict(self,id):
         fileList=os.listdir('resources/jsons')
         dict={}
@@ -31,6 +34,7 @@ class operateTeacherInfo:
                 dict=getTeacherInfo(id)
         return dict
 
+#获取所有老师的ID
     def getTeacherIDList(self):
         fileList=os.listdir('resources/jsons')
         list=[]
@@ -38,6 +42,7 @@ class operateTeacherInfo:
             list.append(item.split('.',1)[0])
         return list
 
+#精确搜索老师信息
     def searchTeaherInfo(self,keyword):
         teachers=self.list
         findedTeacher=[]
@@ -54,6 +59,7 @@ class operateTeacherInfo:
             searchedTeacherData.append(tempArray)   #列表内部嵌套一个列表
         return searchedTeacherData
 
+#通过属性获取教师的信息
     def getTeacherByAttribute(self,dict):
         teachers = readALLTeacherInfo()
         finalTeacherList=[]
