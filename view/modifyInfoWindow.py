@@ -10,7 +10,6 @@ class modifyInfoWindow():
     modifyDetailWindow=None
     def __init__(self):
         qfile_stats = QFile('resources/ui/modifyInformationWindow.ui')
-
         self.ui = QUiLoader().load(qfile_stats)
         self.ui.ensureButton.clicked.connect(self.modify)
         self.ui.cancelButton.clicked.connect(self.cancel)
