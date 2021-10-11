@@ -18,17 +18,18 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.imageLabel.setPixmap(self.image)
 
         self.data=self.ot.getTeacherInfo()
+        self.shownData=self.data.copy()
         self.show_all_information()
         # 当前下拉框发生改变后进行更新表单
 
-        self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.update_table)
-        self.ui.comboBox_zhicheng.currentIndexChanged.connect(self.update_table)
+        self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.refreshTableByConditions)
+        self.ui.comboBox_zhicheng.currentIndexChanged.connect(self.refreshTableByConditions)
         # 二级到三级的跳转
         #self.ui.table.clicked.connect(self.tiaozhuan)
 
         # 精确查询
-        self.ui.search_button.clicked.connect(self.search_person)
-        self.ui.search_text.returnPressed.connect(self.search_person)  # 设置回车连接
+        self.ui.search_button.clicked.connect(self.refreshTableByConditions)
+        self.ui.search_text.returnPressed.connect(self.refreshTableByConditions)  # 设置回车连接
 
         # 设置重置按钮
         #self.ui.shuaxin_button.clicked.connect(self.show_all_information)
@@ -96,7 +97,8 @@ class teacherInfoWindow:  # 二级功能界面设计
         keyText=self.ui.search_text.text()
         college=self.ui.comboBox_xueyuan.currentText()
         title=self.ui.comboBox_zhicheng.currentText()
-        data=getTeacherInfoByConditions(keyText,college,title)
+        self.data=self.ot.getTeacherInfoByConditions(keyText,college,title)
+        self.show_all_information()
     def getSelectedRanges(self):
         listItem=self.ui.table.selectedItems()
         selectedItem=[]

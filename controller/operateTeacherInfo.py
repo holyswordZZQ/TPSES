@@ -102,7 +102,35 @@ class operateTeacherInfo:
     #                 finalTeacherList.append(teachersList)
     #         return finalTeacherList
 
-    def refreshTableByConditions(self,keyword,college,title):
+    def getTeacherInfoByConditions(self,keyword,college,title):
+        firstTempList=[]
+        secondTempList=[]
+        finalList=[]
+        for dic in self.list:
+            if (dic.get('college')==college or college=='全部')and(dic.get('title')==title or title=='全部'):
+                firstTempList.append(dic)
+        print(firstTempList)
+        if keyword!='':
+            for dic in firstTempList:
+                if(dic.get('name').find(keyword)!=-1 or dic.get('id').find(keyword)!=-1):
+                    secondTempList.append(dic)
+        else:
+            secondTempList=firstTempList
+        print(secondTempList)
+
+
+        for dic in secondTempList:
+            list=[]
+            list.append(dic.get('id'))
+            list.append(dic.get('name'))
+            list.append(dic.get('college'))
+            list.append(dic.get('title'))
+            finalList.append(list)
+        return finalList
+
+
+
+
 
 
 

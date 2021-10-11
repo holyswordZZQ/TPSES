@@ -13,8 +13,8 @@ class loginWindow():
         self.ui = QUiLoader().load(qfile_stats)  # 加载ui文件
         self.ui.Loginbutton.clicked.connect(self.loginTonext)
         palette = QPalette()
-        palette.setBrush(QPalette.Background, QBrush(QPixmap("resources/images/loginWindow.jpg")))
-        self.setPalette(palette)
+        palette.setBrush(QPalette.Window, QBrush(QPixmap("resources/images/loginWindow.jpg")))
+        self.ui.setPalette(palette)
 
 
     def loginTonext(self):  # 登录界面点击登录按钮之后
