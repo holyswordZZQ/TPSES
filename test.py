@@ -22,7 +22,7 @@ if mw.centralWidget()==ww.ui:
     mw.centralWidget().getintoButton.clicked.connect(lambda :mw.setCentralWidget(tiw.ui))
 #test for github
 lgw.ui.show()
-
+#
 print('这是一个改动')
 
 app.exec_()
