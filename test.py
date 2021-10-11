@@ -15,7 +15,7 @@ from view.addPerforWindow import addPerforWindow
 app=QApplication([])
 mw=QMainWindow()
 aIW=addInfoWindow()
-mIW=modifyInfoWindow
+mIW=modifyInfoWindow()
 aPW=addPerforWindow()
 tiw=teacherInfoWindow(aIW,mIW,aPW)
 ww=welcomeWindow(tiw)

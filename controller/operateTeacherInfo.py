@@ -55,50 +55,45 @@ class operateTeacherInfo:
         return searchedTeacherData
 
     def getTeacherByAttribute(self,dict,data):
-
-        teachers = readALLTeacherInfo()
         finalTeacherList=[]
         print(dict)
         if dict['college']=='全部' and dict['title']=='全部':
-            for item in teachers:
+            for item in data:
                 teachersList = []
-                teachersList.append(item['id'])
-                teachersList.append(item['name'])
-                teachersList.append(item['college'])
-                teachersList.append(item['title'])
+                teachersList.append(item[0])
+                teachersList.append(item[1])
+                teachersList.append(item[2])
+                teachersList.append(item[3])
                 finalTeacherList.append(teachersList)
             return finalTeacherList
         elif dict['college']=='全部':
-            for item in teachers:
-                if item['title']==dict['title']:
+            for item in data:
+                if item[3]==dict['title']:
                     teachersList=[]
-                    teachersList.append(item['id'])
-                    teachersList.append(item['name'])
-                    teachersList.append(item['college'])
-                    teachersList.append(item['title'])
+                    teachersList.append(item[0])
+                    teachersList.append(item[1])
+                    teachersList.append(item[2])
+                    teachersList.append(item[3])
                     finalTeacherList.append(teachersList)
             return finalTeacherList
         elif dict['title']=='全部':
-            for item in teachers:
-                if item['college']==dict['college']:
+            for item in data:
+                if item[2]==dict['college']:
                     teachersList=[]
-                    teachersList.append(item['id'])
-                    teachersList.append(item['name'])
-                    teachersList.append(item['college'])
-                    teachersList.append(item['title'])
+                    teachersList.append(item[0])
+                    teachersList.append(item[1])
+                    teachersList.append(item[2])
+                    teachersList.append(item[3])
                     finalTeacherList.append(teachersList)
             return finalTeacherList
         else:
-            print('1')
-            for item in teachers:
-                if item['college']==dict['college'] and item['title']==dict['title']:
-                    print('1')
+            for item in data:
+                if item[2]==dict['college'] and item[3]==dict['title']:
                     teachersList = []
-                    teachersList.append(item['id'])
-                    teachersList.append(item['name'])
-                    teachersList.append(item['college'])
-                    teachersList.append(item['title'])
-                    print(teachersList)
+                    teachersList.append(item[0])
+                    teachersList.append(item[1])
+                    teachersList.append(item[2])
+                    teachersList.append(item[3])
                     finalTeacherList.append(teachersList)
             return finalTeacherList
 
