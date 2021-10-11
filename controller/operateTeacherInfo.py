@@ -1,9 +1,10 @@
-from model.readAllTeacherInfo import readALLTeacherInfo
-
+from model.readAllTeacherInfo import readALLTeacherInfo,getTeacherInfo
+import os
 
 class operateTeacherInfo:
     def __init__(self):
         self.list=[]
+        #self.id=0
     def getTeacherInfo(self):
         self.list=readALLTeacherInfo()
         specTeacherInfo=[]
@@ -22,6 +23,21 @@ class operateTeacherInfo:
         return lspecTeacherInfo
 # getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
 
+    def getTeacherInfoDict(self,id):
+        fileList=os.listdir('resources/jsons')
+        dict={}
+        for item in fileList:
+            if id+'.json'==item:
+                dict=getTeacherInfo(id)
+        return dict
+
+    def getTeacherIDList(self):
+        fileList=os.listdir('resources/jsons')
+        list=[]
+        for item in fileList:
+            list.append(item.split('.',1)[0])
+        return list
+
     def searchTeaherInfo(self,keyword):
         teachers=self.list
         findedTeacher=[]
@@ -38,7 +54,7 @@ class operateTeacherInfo:
             searchedTeacherData.append(tempArray)   #列表内部嵌套一个列表
         return searchedTeacherData
 
-    def getTeacherByAttribute(dict):
+    def getTeacherByAttribute(self,dict):
         teachers = readALLTeacherInfo()
         finalTeacherList=[]
         if dict['college']=='全部' and dict['title']=='全部':

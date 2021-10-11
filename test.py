@@ -1,28 +1,33 @@
 import time
 
-from PySide2 import QtWidgets
-from PySide2.QtWidgets import QWidget
+from PySide6 import QtWidgets
+from PySide6.QtWidgets import QWidget
 from view.welcomeWindow import welcomeWindow
-from PySide2.QtWidgets import QMainWindow
-from PySide2.QtWidgets import QApplication
+from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QApplication
 from view.teacherInfoWindow import teacherInfoWindow
 from view.loginWindow import loginWindow
-
+from view.addInfoWindow import addInfoWindow
+from view.modifyInfoWindow import modifyInfoWindow
+from view.addPerforWindow import addPerforWindow
 
 
 app=QApplication([])
 mw=QMainWindow()
-ww=welcomeWindow(None)
+aIW=addInfoWindow()
+mIW=modifyInfoWindow
+aPW=addPerforWindow()
+tiw=teacherInfoWindow(aIW,mIW,aPW)
+ww=welcomeWindow(tiw)
 lgw=loginWindow(mw)
 
-tiw=teacherInfoWindow(None,None)
-mw.setGeometry(0,0,1920,1000)
+mw.setGeometry(0,0,1000,1000)
 mw.setCentralWidget(ww.ui)
 if mw.centralWidget()==ww.ui:
     mw.centralWidget().getintoButton.clicked.connect(lambda :mw.setCentralWidget(tiw.ui))
-#test for github
-lgw.ui.show()
-#
-print('这是一个改动')
 
-app.exec_()
+lgw.ui.show()
+
+
+
+app.exec()

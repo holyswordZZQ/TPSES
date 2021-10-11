@@ -75,9 +75,9 @@
   <widget class="QComboBox" name="comboBox_xueyuan">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>330</x>
      <y>60</y>
-     <width>121</width>
+     <width>91</width>
      <height>21</height>
     </rect>
    </property>
@@ -100,9 +100,9 @@
   <widget class="QComboBox" name="comboBox_zhicheng">
    <property name="geometry">
     <rect>
-     <x>500</x>
+     <x>430</x>
      <y>60</y>
-     <width>201</width>
+     <width>281</width>
      <height>21</height>
     </rect>
    </property>
@@ -152,8 +152,13 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
    <property name="text">
-    <string>单击工号进入详情</string>
+    <string>选中工号可查看业绩详情</string>
    </property>
   </widget>
   <widget class="QPushButton" name="search_button">
@@ -219,6 +224,19 @@
    </property>
    <property name="text">
     <string>业绩录入</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="searchButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>340</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>查看业绩</string>
    </property>
   </widget>
  </widget>

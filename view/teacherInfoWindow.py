@@ -1,19 +1,23 @@
-from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtCore import QFile
-from PySide2.QtGui import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtCore import QFile
+from PySide6.QtGui import Qt
 from controller.operateTeacherInfo import operateTeacherInfo
+from view.showPerforWindow import showPerforWindow
 
 class teacherInfoWindow:  # 二级功能界面设计
-    def __init__(self,addInfoWindow,modifyInfoWindow):
+    def __init__(self,addInfoWindow,modifyInfoWindow,addPerforWindow):
         self.ot=operateTeacherInfo()
         self.ui = QUiLoader().load('resources/ui/jiemian_2.ui')
         self.addInfoWindow=addInfoWindow
         self.modifyInfoWindow=modifyInfoWindow
+        self.addPerforWindow=addPerforWindow
+        self.showperforwindow=None
 
         self.data=self.ot.getTeacherInfo()
         self.show_all_information()
         # 当前下拉框发生改变后进行更新表单
+
         self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.update_table)
         self.ui.comboBox_zhicheng.currentIndexChanged.connect(self.update_table)
         # 二级到三级的跳转
@@ -24,7 +28,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.search_text.returnPressed.connect(self.search_person)  # 设置回车连接
 
         # 设置重置按钮
-        self.ui.shuaxin_button.clicked.connect(lambda: self.show_all_information(self.dict_list))
+        self.ui.shuaxin_button.clicked.connect(self.show_all_information)
 
         # 设置新增按钮
         self.ui.add_account_button.clicked.connect(self.goToAdd)
@@ -32,7 +36,8 @@ class teacherInfoWindow:  # 二级功能界面设计
         # 设置修改按钮
         self.ui.modify_account_button.clicked.connect(self.goTomodify)
         self.ui.refreshButton.clicked.connect(self.refresh)
-        #self.ui.addperformanceButton.clicked.connect(self.addPerformance)
+        self.ui.addperformanceButton.clicked.connect(self.goToAddPer)
+        self.ui.searchButton.clicked.connect(self.search)
 
     def show_all_information(self):
         # 将列表中所有教师的简略基本信息显示在表格中
@@ -76,7 +81,6 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.table.setRowCount(0)  # 每次刷新表单时重置表格
         college = self.ui.comboBox_xueyuan.currentText()  # 获取学院下拉框的内容
         title = self.ui.comboBox_zhicheng.currentText()  # 获取职称下拉框的内容
-        length = len(self.dict_list)  # 获取总人数，也就是总文件数
 
         selectFilter={
             'college':college,
@@ -94,6 +98,17 @@ class teacherInfoWindow:  # 二级功能界面设计
     #         global allinformation
     #         allinformation=allInformation()
     #         allinformation.ui.show()
+    def getSelectedRanges(self):
+        listItem=self.ui.table.selectedItems()
+        selectedItem=[]
+        for item in listItem:
+            selectedItem.append(item.text())
+        return selectedItem
+
+    def search(self):
+        list = self.getSelectedRanges()
+        self.showperforwindow = showPerforWindow(list)
+        self.showperforwindow.ui.show()
 
 
     def goToAdd(self):  #添加信息界面
@@ -101,6 +116,9 @@ class teacherInfoWindow:  # 二级功能界面设计
 
     def goTomodify(self):  #修改信息页面
         self.modifyInfoWindow.ui.show()
+
+    def goToAddPer(self):  #业绩信息录入页面
+        self.addPerforWindow.ui.show()
 
     def refresh(self):  #刷新信息
         self.data=self.ot.getTeacherInfo()
