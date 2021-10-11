@@ -23,6 +23,6 @@ if mw.centralWidget()==ww.ui:
 #test for github
 lgw.ui.show()
 
-
+print('这是一个改动')
 
 app.exec_()
