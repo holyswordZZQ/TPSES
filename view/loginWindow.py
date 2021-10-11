@@ -1,4 +1,5 @@
 from PySide6.QtCore import QFile
+from PySide6.QtGui import QPalette, QBrush, QPixmap
 from PySide6.QtWidgets import  QMessageBox
 from controller.loginVerify import loginVerify
 #from utils.drawPie import drawPie
@@ -11,6 +12,10 @@ class loginWindow():
         self.mainWindow=mainWindow
         self.ui = QUiLoader().load(qfile_stats)  # 加载ui文件
         self.ui.Loginbutton.clicked.connect(self.loginTonext)
+        palette = QPalette()
+        palette.setBrush(QPalette.Background, QBrush(QPixmap("resources/images/loginWindow.jpg")))
+        self.setPalette(palette)
+
 
     def loginTonext(self):  # 登录界面点击登录按钮之后
         textname = self.ui.nameEdit.text()  # 所输入的用户名
