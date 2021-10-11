@@ -1,14 +1,14 @@
-from PySide2.QtCore import QFile
-from PySide2.QtWidgets import  QMessageBox
+from PySide6.QtCore import QFile
+from PySide6.QtWidgets import  QMessageBox
 from controller.loginVerify import loginVerify
-from utils.drawPie import drawPie
-from PySide2.QtUiTools import QUiLoader
+#from utils.drawPie import drawPie
+from PySide6.QtUiTools import QUiLoader
 
 class loginWindow():
-    def __init__(self,welcomeWindow):
-        drawPie()
-        qfile_stats = QFile('C:/Users/lenovo/Desktop/周报素材/新建文件夹/resources/ui/LoginWindow.ui')  # 打开ui文件
-        self.welcomeWindow=welcomeWindow
+    def __init__(self,mainWindow):
+        #drawPie()
+        qfile_stats = QFile('resources/ui/LoginWindow.ui')  # 打开ui文件
+        self.mainWindow=mainWindow
         self.ui = QUiLoader().load(qfile_stats)  # 加载ui文件
         self.ui.Loginbutton.clicked.connect(self.loginTonext)
 
@@ -17,7 +17,7 @@ class loginWindow():
         textpassword = self.ui.passwordEdit.text()  # 所输入的密码
         state=loginVerify(textname,textpassword)
         if state==0:
-            self.welcomeWindow.show()
+            self.mainWindow.show()
             self.ui.close()
         if state==1:
             QMessageBox.warning(self.ui, '出错了', '密码有误，请重新输入')

@@ -1,7 +1,7 @@
-from PySide2.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
-from PySide2.QtUiTools import QUiLoader
-from PySide2.QtCore import QFile
-from PySide2.QtGui import Qt
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtCore import QFile
+from PySide6.QtGui import Qt
 from controller.addTeacherInfo import getExistedTeacher
 from controller.modifyTeacherInfo import showUnchangedInfo,modifyTeacherInfo
 from controller.operateTeacherInfo import operateTeacherInfo
@@ -32,6 +32,7 @@ class modifyDetailWindow:
         dict['college'] = self.ui.collegeEdit.currentText()
         dict['title'] = self.ui.titleEdit.currentText()
         dict['time'] = self.ui.timeEdit.text()
+        dict['performance']=[]
         modifyTeacherInfo(dict)
         QMessageBox.information(self.ui, '操作成功', '信息修改成功')
 
