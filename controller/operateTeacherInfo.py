@@ -59,10 +59,11 @@ class operateTeacherInfo:
             searchedTeacherData.append(tempArray)   #列表内部嵌套一个列表
         return searchedTeacherData
 
-#通过属性获取教师的信息
-    def getTeacherByAttribute(self,dict):
+    def getTeacherByAttribute(self,dict,data):
+
         teachers = readALLTeacherInfo()
         finalTeacherList=[]
+        print(dict)
         if dict['college']=='全部' and dict['title']=='全部':
             for item in teachers:
                 teachersList = []
@@ -93,15 +94,18 @@ class operateTeacherInfo:
                     finalTeacherList.append(teachersList)
             return finalTeacherList
         else:
+            print('1')
             for item in teachers:
                 if item['college']==dict['college'] and item['title']==dict['title']:
+                    print('1')
                     teachersList = []
                     teachersList.append(item['id'])
                     teachersList.append(item['name'])
                     teachersList.append(item['college'])
                     teachersList.append(item['title'])
+                    print(teachersList)
                     finalTeacherList.append(teachersList)
-                return finalTeacherList
+            return finalTeacherList
 
 
 

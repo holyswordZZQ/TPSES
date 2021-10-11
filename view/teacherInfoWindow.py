@@ -86,7 +86,7 @@ class teacherInfoWindow:  # 二级功能界面设计
             'college':college,
             'title':title
         }
-        self.data=self.ot.getTeacherByAttribute(selectFilter)
+        self.data=self.ot.getTeacherByAttribute(selectFilter,self.data)
         self.show_all_information()
 
 
