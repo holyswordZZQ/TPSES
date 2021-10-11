@@ -18,17 +18,18 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.imageLabel.setPixmap(self.image)
 
         self.data=self.ot.getTeacherInfo()
+        self.shownData=self.data.copy()
         self.show_all_information()
         # 当前下拉框发生改变后进行更新表单
 
-        self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.update_table)
-        self.ui.comboBox_zhicheng.currentIndexChanged.connect(self.update_table)
+        self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.refreshTableByConditions)
+        self.ui.comboBox_zhicheng.currentIndexChanged.connect(self.refreshTableByConditions)
         # 二级到三级的跳转
         #self.ui.table.clicked.connect(self.tiaozhuan)
 
         # 精确查询
-        self.ui.search_button.clicked.connect(self.search_person)
-        self.ui.search_text.returnPressed.connect(self.search_person)  # 设置回车连接
+        self.ui.search_button.clicked.connect(self.refreshTableByConditions)
+        self.ui.search_text.returnPressed.connect(self.refreshTableByConditions)  # 设置回车连接
 
         # 设置重置按钮
         #self.ui.shuaxin_button.clicked.connect(self.show_all_information)
@@ -71,36 +72,33 @@ class teacherInfoWindow:  # 二级功能界面设计
             title.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
             self.ui.table.setItem(rowcount, 3, title)
 
-    def search_person(self):  # 根据教师信息来精确查询
+    # def search_person(self):  # 根据教师信息来精确查询
+    #
+    #     text = self.ui.search_text.text()  # 获取单元格内容
+    #     # flag = False  # 设置是否已经查到的标志
+    #     self.ui.table.setRowCount(0)  # 格式化表单
+    #     self.data=self.ot.searchTeaherInfo(text)
+    #     self.show_all_information()
+    #     # print(flag)
+    #
+    # def update_table(self):
+    #     self.ui.table.setRowCount(0)  # 每次刷新表单时重置表格
+    #     college = self.ui.comboBox_xueyuan.currentText()  # 获取学院下拉框的内容
+    #     title = self.ui.comboBox_zhicheng.currentText()  # 获取职称下拉框的内容
+    #
+    #     selectFilter={
+    #         'college':college,
+    #         'title':title
+    #     }
+    #     self.data=self.ot.getTeacherByAttribute(selectFilter,self.data)
+    #     self.show_all_information()
 
-        text = self.ui.search_text.text()  # 获取单元格内容
-        # flag = False  # 设置是否已经查到的标志
-        self.ui.table.setRowCount(0)  # 格式化表单
-        self.data=self.ot.searchTeaherInfo(text)
+    def refreshTableByConditions(self):
+        keyText=self.ui.search_text.text()
+        college=self.ui.comboBox_xueyuan.currentText()
+        title=self.ui.comboBox_zhicheng.currentText()
+        self.data=self.ot.getTeacherInfoByConditions(keyText,college,title)
         self.show_all_information()
-        # print(flag)
-
-    def update_table(self):
-        self.ui.table.setRowCount(0)  # 每次刷新表单时重置表格
-        college = self.ui.comboBox_xueyuan.currentText()  # 获取学院下拉框的内容
-        title = self.ui.comboBox_zhicheng.currentText()  # 获取职称下拉框的内容
-
-        selectFilter={
-            'college':college,
-            'title':title
-        }
-        self.data=self.ot.getTeacherByAttribute(selectFilter,self.data)
-        self.show_all_information()
-
-    # def addPerformance(self):   #添加履历信息界面
-    #     addperformancewindow.ui.show()
-    # def tiaozhuan(self):
-    #     for i in self.ui.table.selectedItems():
-    #         global m
-    #         m=i.text()
-    #         global allinformation
-    #         allinformation=allInformation()
-    #         allinformation.ui.show()
     def getSelectedRanges(self):
         listItem=self.ui.table.selectedItems()
         selectedItem=[]
