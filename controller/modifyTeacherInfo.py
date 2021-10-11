@@ -6,6 +6,5 @@ def showUnchangedInfo():
     return lst
 
 def modifyTeacherInfo(dict):
-
     writeTeacherInfo(dict)
 
