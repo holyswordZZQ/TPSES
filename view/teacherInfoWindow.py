@@ -68,28 +68,32 @@ class teacherInfoWindow:  # 二级功能界面设计
             title.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
             self.ui.table.setItem(rowcount, 3, title)
 
-    def search_person(self):  # 根据教师信息来精确查询
+    # def search_person(self):  # 根据教师信息来精确查询
+    #
+    #     text = self.ui.search_text.text()  # 获取单元格内容
+    #     # flag = False  # 设置是否已经查到的标志
+    #     self.ui.table.setRowCount(0)  # 格式化表单
+    #     self.data=self.ot.searchTeaherInfo(text)
+    #     self.show_all_information()
+    #     # print(flag)
+    #
+    # def update_table(self):
+    #     self.ui.table.setRowCount(0)  # 每次刷新表单时重置表格
+    #     college = self.ui.comboBox_xueyuan.currentText()  # 获取学院下拉框的内容
+    #     title = self.ui.comboBox_zhicheng.currentText()  # 获取职称下拉框的内容
+    #
+    #     selectFilter={
+    #         'college':college,
+    #         'title':title
+    #     }
+    #     self.data=self.ot.getTeacherByAttribute(selectFilter,self.data)
+    #     self.show_all_information()
 
-        text = self.ui.search_text.text()  # 获取单元格内容
-        # flag = False  # 设置是否已经查到的标志
-        self.ui.table.setRowCount(0)  # 格式化表单
-        self.data=self.ot.searchTeaherInfo(text)
-        self.show_all_information()
-        # print(flag)
-
-    def update_table(self):
-        self.ui.table.setRowCount(0)  # 每次刷新表单时重置表格
-        college = self.ui.comboBox_xueyuan.currentText()  # 获取学院下拉框的内容
-        title = self.ui.comboBox_zhicheng.currentText()  # 获取职称下拉框的内容
-
-        selectFilter={
-            'college':college,
-            'title':title
-        }
-        self.data=self.ot.getTeacherByAttribute(selectFilter,self.data)
-        self.show_all_information()
-
-
+    def refreshTableByConditions(self):
+        keyText=self.ui.search_text.text()
+        college=self.ui.comboBox_xueyuan.currentText()
+        title=self.ui.comboBox_zhicheng.currentText()
+        data=getTeacherInfoByConditions(keyText,college,title)
     def getSelectedRanges(self):
         listItem=self.ui.table.selectedItems()
         selectedItem=[]
