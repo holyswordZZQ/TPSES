@@ -20,7 +20,7 @@ class operateTeacherInfo:
             specTeacherInfo.append(self.list[i].get('performance'))
             specTeacherInfo.append(self.list[i].get('time'))
             lspecTeacherInfo.append(specTeacherInfo)
-            specTeachherInfo=[]
+            specTeacherInfo=[]
 
         return lspecTeacherInfo
 # getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
