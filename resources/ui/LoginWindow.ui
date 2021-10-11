@@ -56,7 +56,7 @@ background-image: url(:/backgroundPic/1.png);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);
+    <string notr="true">background-color: transparent;
 border-color: transparent;</string>
    </property>
    <property name="echoMode">
@@ -131,7 +131,7 @@ border-color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>160</x>
      <y>30</y>
      <width>351</width>
      <height>41</height>
@@ -155,6 +155,9 @@ border-color: rgb(0, 0, 0);</string>
      <width>431</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent;</string>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
