@@ -18,8 +18,8 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.imageLabel.setPixmap(self.image)
 
         self.flag=1
-        self.button1=QIcon('resources/images/button1.png')
-        self.button2=QIcon('resources/images/button2.png')
+        self.button1=QIcon('resources/images/三角1.svg')
+        self.button2=QIcon('resources/images/三角2.svg')
         self.ui.sortButton.setIcon(self.button1)
         self.ui.sortButton.clicked.connect(self.showSortedInfo)
         #size=headeritem.sizeHint()
