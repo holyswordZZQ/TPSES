@@ -21,7 +21,7 @@ tiw=teacherInfoWindow(aIW,mIW,aPW)
 ww=welcomeWindow(tiw)
 lgw=loginWindow(mw)
 
-mw.setGeometry(0,0,1000,1000)
+mw.setGeometry(0,0,850,1000)
 mw.setCentralWidget(ww.ui)
 if mw.centralWidget()==ww.ui:
     mw.centralWidget().getintoButton.clicked.connect(lambda :mw.setCentralWidget(tiw.ui))
