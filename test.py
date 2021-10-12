@@ -17,7 +17,7 @@ mw=QMainWindow()
 aIW=addInfoWindow()
 mIW=modifyInfoWindow()
 aPW=addPerforWindow()
-tiw=teacherInfoWindow(aIW,mIW,aPW)
+tiw=teacherInfoWindow(aIW,mIW)
 ww=welcomeWindow(tiw)
 lgw=loginWindow(mw)
 

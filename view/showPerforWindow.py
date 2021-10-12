@@ -1,4 +1,6 @@
 from PySide6.QtGui import Qt
+
+from view.addPerforWindow import addPerforWindow
 from view.welcomeWindow import welcomeWindow
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QWidgetItem, QTableWidgetItem
 from PySide6.QtWidgets import QApplication
@@ -11,9 +13,11 @@ class showPerforWindow:
     def __init__(self,list):
         self.ui = QUiLoader().load('resources/ui/showPerforInfo.ui')
         self.list=list
+        self.addperforwindow = addPerforWindow()
         self.oTI=operateTeacherInfo()
         self.showAllInformation()
         self.ui.table.itemClicked.connect(self.showDetail)
+        self.ui.addperforButton.clicked.connect(self.goToAddPer)
         self.perfordetailwindow=None
 
     def showAllInformation(self):
@@ -81,4 +85,5 @@ class showPerforWindow:
                 self.perfordetailwindow=perforDetailWindow(b,j)
                 self.perfordetailwindow.ui.show()
 
-
+    def goToAddPer(self):  #业绩信息录入页面
+        self.addperforwindow.ui.show()
