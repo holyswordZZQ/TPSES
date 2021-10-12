@@ -17,9 +17,11 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.image.load('resources/images/teacherInfoWindow.png')
         self.ui.imageLabel.setPixmap(self.image)
 
+
         self.data=self.ot.getTeacherInfo()
         self.shownData=self.data.copy()
         self.show_all_information()
+
         # 当前下拉框发生改变后进行更新表单
 
         self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.refreshTableByConditions)
