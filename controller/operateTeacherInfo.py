@@ -106,7 +106,7 @@ class operateTeacherInfo:
         firstTempList=[]
         secondTempList=[]
         finalList=[]
-        for dic in self.list:
+        for dic in self.list:    #采用self.list,省去了读文件的步骤
             if (dic.get('college')==college or college=='全部')and(dic.get('title')==title or title=='全部'):
                 firstTempList.append(dic)
         print(firstTempList)
