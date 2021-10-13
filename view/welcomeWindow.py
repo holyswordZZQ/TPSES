@@ -9,6 +9,7 @@ class welcomeWindow():  # 欢迎登录界面
         self.teacherInfoWindow=teacherInfoWindow
         qfile_stats = QFile("resources/ui/welcome.ui")
         self.ui = QUiLoader().load(qfile_stats)
+
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(QPixmap("resources/images/welcomeWindow.jpg")))
         self.ui.setPalette(palette)
