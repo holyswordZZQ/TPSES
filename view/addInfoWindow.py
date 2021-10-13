@@ -32,6 +32,7 @@ class addInfoWindow:   #信息增添窗口
                 d['title'] = self.ui.titleBox.currentText()
                 d['performance'] = ''
                 d['time'] = self.ui.timeEdit.text()
+                d['available']='1'
                 addTeacherInfo(d)
                 QMessageBox.information(self.ui, '操作成功', '信息已录入')
             elif reState == None:

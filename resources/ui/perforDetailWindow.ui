@@ -157,97 +157,6 @@
     <string>详细信息：</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="perforIDEdit">
-   <property name="geometry">
-    <rect>
-     <x>132</x>
-     <y>60</y>
-     <width>161</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="teacherIDEdit">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>59</y>
-     <width>161</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="moneyEdit">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>149</y>
-     <width>113</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="numEdit">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>150</y>
-     <width>113</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="sumEdit">
-   <property name="geometry">
-    <rect>
-     <x>510</x>
-     <y>150</y>
-     <width>113</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="happentimeEdit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>239</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="updatetimeEdit">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>240</y>
-     <width>141</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QTextEdit" name="detailInfoEdit">
    <property name="geometry">
     <rect>
@@ -259,6 +168,97 @@
    </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="perforIDEdit">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>60</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="teacherIDEdit">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>60</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="moneyEdit">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>150</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="numEdit">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>150</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sumEdit">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>150</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="happentimeEdit">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>240</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="updatetimeEdit">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>240</y>
+     <width>111</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

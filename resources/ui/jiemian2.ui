@@ -7,11 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>829</width>
-    <height>735</height>
+    <height>643</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QPushButton" name="add_account_button">
    <property name="geometry">
@@ -21,6 +24,9 @@
      <width>111</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(205, 205, 205);</string>
    </property>
    <property name="text">
     <string>新增信息</string>
@@ -35,6 +41,9 @@
      <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(205, 205, 205);</string>
+   </property>
    <property name="text">
     <string>修改信息</string>
    </property>
@@ -45,7 +54,7 @@
      <x>180</x>
      <y>80</y>
      <width>601</width>
-     <height>601</height>
+     <height>531</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -100,9 +109,9 @@ border-width:5px};</string>
   <widget class="QComboBox" name="comboBox_xueyuan">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>402</x>
      <y>60</y>
-     <width>91</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -125,9 +134,9 @@ border-width:5px};</string>
   <widget class="QComboBox" name="comboBox_zhicheng">
    <property name="geometry">
     <rect>
-     <x>500</x>
+     <x>503</x>
      <y>60</y>
-     <width>281</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -234,10 +243,13 @@ border-width:5px};</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>470</y>
+     <y>550</y>
      <width>111</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(205, 205, 205);</string>
    </property>
    <property name="text">
     <string>查看业绩</string>
@@ -273,6 +285,22 @@ border-width:5px};</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>470</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(205, 205, 205);</string>
+   </property>
+   <property name="text">
+    <string>删除信息</string>
    </property>
   </widget>
  </widget>

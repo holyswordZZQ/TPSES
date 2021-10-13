@@ -1,1 +1,1 @@
-{"id": "20172134", "name": "张张", "college": "软件学院", "title": "教授","performance":[], "time": "20170102"}
+{"id": "20172134", "name": "张张", "college": "软件学院", "title": "教授", "performance": [{"money": "200", "num": "10", "sum": 2000, "happenTime": "20190425", "latestUpdateTime": "20211013", "type": "4.论文评审", "credit": 2, "detail": "11111", "performID": 20210011}], "time": "20170102", "available": "0"}
