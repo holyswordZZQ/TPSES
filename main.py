@@ -16,8 +16,8 @@ app=QApplication([])
 mw=QMainWindow()
 aIW=addInfoWindow()
 mIW=modifyInfoWindow()
-aPW=addPerforWindow()
-tiw=teacherInfoWindow(aIW,mIW,aPW)
+tiw=teacherInfoWindow(aIW,mIW,)
+
 ww=welcomeWindow(tiw)
 lgw=loginWindow(mw)
 
@@ -25,9 +25,5 @@ mw.setGeometry(0,0,850,1000)
 mw.setCentralWidget(ww.ui)
 if mw.centralWidget()==ww.ui:
     mw.centralWidget().getintoButton.clicked.connect(lambda :mw.setCentralWidget(tiw.ui))
-
 lgw.ui.show()
-
-
-
 app.exec()
