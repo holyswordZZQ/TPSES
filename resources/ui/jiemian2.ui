@@ -166,19 +166,6 @@ border-width:5px};</string>
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>60</y>
-     <width>71</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>   筛选</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="enabled">
     <bool>false</bool>
@@ -274,8 +261,8 @@ border-width:5px};</string>
   <widget class="QPushButton" name="sortButton">
    <property name="geometry">
     <rect>
-     <x>760</x>
-     <y>80</y>
+     <x>766</x>
+     <y>66</y>
      <width>15</width>
      <height>15</height>
     </rect>

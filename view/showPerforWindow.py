@@ -18,6 +18,7 @@ class showPerforWindow:
         self.showAllInformation()
         self.ui.table.itemClicked.connect(self.showDetail)
         self.ui.addperforButton.clicked.connect(self.goToAddPer)
+        self.ui.returnButton.clicked.connect(self.returnprefer)
         self.perfordetailwindow=None
 
     def showAllInformation(self):
@@ -87,3 +88,5 @@ class showPerforWindow:
 
     def goToAddPer(self):  #业绩信息录入页面
         self.addperforwindow.ui.show()
+    def returnprefer(self):
+        self.ui.close()

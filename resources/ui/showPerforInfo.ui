@@ -100,7 +100,7 @@
     <string>业绩具体信息</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="returnButton">
    <property name="geometry">
     <rect>
      <x>30</x>
