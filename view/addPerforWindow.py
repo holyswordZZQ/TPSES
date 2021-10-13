@@ -18,9 +18,10 @@ class addPerforWindow:
         oTI=operateTeacherInfo()
         perfor_dict={}
         inputId=self.ui.idEdit.text()
-        state=isIDRight(inputId)
+        inputTime=self.ui.timeEdit.text()
+        state=isIDRight(inputId,inputTime)
         if state==0:
-            QMessageBox.warning(self.ui,'出错了','输入的id不符合要求')
+            QMessageBox.warning(self.ui,'出错了','输入的id或发生时间不符合要求')
         elif state==1:
             QMessageBox.warning(self.ui,'出错了','id不存在，请先添加信息')
         elif state==2:
@@ -40,4 +41,4 @@ class addPerforWindow:
             addper(d)
             QMessageBox.information(self.ui,'操作成功','业绩信息已录入')
     def cancel(self):
-        pass
+        self.ui.close()

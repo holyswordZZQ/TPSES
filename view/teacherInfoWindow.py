@@ -5,6 +5,7 @@ from PySide6.QtGui import Qt, QPixmap, QPicture,QIcon
 from controller.operateTeacherInfo import operateTeacherInfo
 from view.showPerforWindow import showPerforWindow
 
+
 class teacherInfoWindow:  # 二级功能界面设计
     def __init__(self,addInfoWindow,modifyInfoWindow):
         self.ot=operateTeacherInfo()
@@ -46,6 +47,7 @@ class teacherInfoWindow:  # 二级功能界面设计
 
         # 设置新增按钮
         self.ui.add_account_button.clicked.connect(self.goToAdd)
+        self.ui.deleteButton.clicked.connect(self.goToDelete)
 
         # 设置修改按钮
         self.ui.modify_account_button.clicked.connect(self.goTomodify)
@@ -57,31 +59,40 @@ class teacherInfoWindow:  # 二级功能界面设计
     def show_all_information(self):
         # 将列表中所有教师的简略基本信息显示在表格中
         self.ui.table.setRowCount(0)
+        print('----------------------------------------------------------------------------------')
         for i in range(len(self.data)):
-            rowcount = self.ui.table.rowCount()  # 获取当前的行数
-            self.ui.table.insertRow(rowcount)  # 在末尾插入新的一行
-            # 加入信息
-            id = QTableWidgetItem(self.data[i][0])
-            # id.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
-            id.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
-            self.ui.table.setItem(rowcount, 0, id)  # 将信息插入表格
+            if self.data[i][6]=='1':
+                print(self.data[i])
 
-            name = QTableWidgetItem(self.data[i][1])
-            name.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
-            name.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
-            self.ui.table.setItem(rowcount, 1, name)
+                rowcount = self.ui.table.rowCount()  # 获取当前的行数
+                self.ui.table.insertRow(rowcount)  # 在末尾插入新的一行
+                # 加入信息
+                id = QTableWidgetItem(self.data[i][0])
+                # id.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
+                id.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
+                self.ui.table.setItem(rowcount, 0, id)  # 将信息插入表格
 
-            # 显示学院信息
-            college = QTableWidgetItem(self.data[i][2])
-            college.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
-            college.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
-            self.ui.table.setItem(rowcount, 2, college)
+                name = QTableWidgetItem(self.data[i][1])
+                name.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
+                name.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
+                self.ui.table.setItem(rowcount, 1, name)
 
-            # 显示职称信息
-            title = QTableWidgetItem(self.data[i][3])
-            title.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
-            title.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
-            self.ui.table.setItem(rowcount, 3, title)
+                # 显示学院信息
+                college = QTableWidgetItem(self.data[i][2])
+                college.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
+                college.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
+                self.ui.table.setItem(rowcount, 2, college)
+
+                # 显示职称信息
+                title = QTableWidgetItem(self.data[i][3])
+                title.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
+                title.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
+                self.ui.table.setItem(rowcount, 3, title)
+
+                time = QTableWidgetItem(self.data[i][5])
+                time.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
+                time.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
+                self.ui.table.setItem(rowcount, 4, time)
 
     def showSortedInfo(self):
         if self.flag==1:
@@ -119,7 +130,15 @@ class teacherInfoWindow:  # 二级功能界面设计
     def goTomodify(self):  #修改信息页面
         self.modifyInfoWindow.ui.show()
 
+    def goToDelete(self):
+        list=self.getSelectedRanges()
+        self.ot.deleteInfo(list)
+        if len(list)!=0:
+            QMessageBox.information(self.ui,'操作成功','删除成功')
 
     def refresh(self):  #刷新信息
         self.data=self.ot.getTeacherInfo()
         self.show_all_information()
+        self.ui.search_text.setText('')
+        self.ui.comboBox_xueyuan.setCurrentText('全部')
+        self.ui.comboBox_zhicheng.setCurrentText('全部')

@@ -1,3 +1,2 @@
 {"id": "20172136", "name": "赵哥哥", "college": "计算机学院", "title": "教授",
-  "available":"True",
-  "performance": [{"performID": 20170000, "credit": 4, "latestUpdateTime": "2021-10-8,9:30", "happenTime": "2021-10-5", "type": "1.复试", "money": 200, "num": 4, "sum": 800, "detail": ""}, {"money": "200", "num": "5", "sum": 1000, "happenTime": "20190406", "latestUpdateTime": "20211010", "type": "2.预答辩","credit":3, "detail": "", "performID": 20210007}], "time": "20170109"}
+  "performance": [{"performID": 20170000, "credit": 4, "latestUpdateTime": "2021-10-8,9:30", "happenTime": "2021-10-5", "type": "1.复试", "money": 200, "num": 4, "sum": 800, "detail": ""}, {"money": "200", "num": "5", "sum": 1000, "happenTime": "20190406", "latestUpdateTime": "20211010", "type": "2.预答辩","credit":3, "detail": "", "performID": 20210007}], "time": "20170109","available": "1"}

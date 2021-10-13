@@ -8,7 +8,6 @@ from controller.operateTeacherInfo import operateTeacherInfo
 import re
 
 class modifyDetailWindow:
-
     def __init__(self,textID):
         self.textID = textID
         qfile_stats = QFile('resources/ui/modifyDetailWindow.ui')
@@ -26,17 +25,21 @@ class modifyDetailWindow:
         self.ui.cancelButton.clicked.connect(self.cancel)
 
     def change(self):
-        dict = {}
-        dict['id']=self.textID
-        dict['name'] = self.ui.nameEdit.text()
-        dict['college'] = self.ui.collegeEdit.currentText()
-        dict['title'] = self.ui.titleEdit.currentText()
-        dict['time'] = self.ui.timeEdit.text()
-        dict['performance']=[]
-        modifyTeacherInfo(dict)
-        QMessageBox.information(self.ui, '操作成功', '信息修改成功')
+        reTimeState=re.match('[1-9]\d{3}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])',self.ui.timeEdit.text())
+        if reTimeState!=None:
+            dict = {}
+            dict['id']=self.textID
+            dict['name'] = self.ui.nameEdit.text()
+            dict['college'] = self.ui.collegeEdit.currentText()
+            dict['title'] = self.ui.titleEdit.currentText()
+            dict['time'] = self.ui.timeEdit.text()
+            dict['performance']=[]
+            dict['available']='1'
+            modifyTeacherInfo(dict)
+            QMessageBox.information(self.ui, '操作成功', '信息修改成功')
+        else:
+            QMessageBox.warning(self.ui,'操作失败','输入的时间不符合要求')
 
     def cancel(self):  #取消，即返回上一级
-
         self.ui.close()
         del self

@@ -1,6 +1,7 @@
 from model.readAllTeacherInfo import readALLTeacherInfo,getTeacherInfo
 import os
 from operator import itemgetter
+from model.writeTeacherInfo import writeTeacherInfo
 
 class operateTeacherInfo:
     def __init__(self):
@@ -20,6 +21,7 @@ class operateTeacherInfo:
             specTeacherInfo.append(self.list[i].get('title'))
             specTeacherInfo.append(self.list[i].get('performance'))
             specTeacherInfo.append(self.list[i].get('time'))
+            specTeacherInfo.append(self.list[i].get('available'))
             lspecTeacherInfo.append(specTeacherInfo)
             specTeacherInfo=[]
 
@@ -69,6 +71,7 @@ class operateTeacherInfo:
             list.append(dic.get('title'))
             list.append(dic.get('performance'))
             list.append(dic.get('time'))
+            list.append(dic.get('available'))
             finalList.append(list)
         return finalList
 
@@ -82,6 +85,13 @@ class operateTeacherInfo:
             return data
         else:
             return list(reversed(data))
+
+    def deleteInfo(self,list):
+        dict={}
+        for item in list:
+            dict=self.getTeacherInfoDict(item)
+            dict['available']='0'
+        writeTeacherInfo(dict)
 
 
 

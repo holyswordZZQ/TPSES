@@ -17,9 +17,10 @@ def getPerforID():
 def operateID(id):
     writeToTxt(id)
 
-def isIDRight(id):
+def isIDRight(id,time):
     reState = re.match('\d\d\d\d\d\d\d\d', id)
-    if reState==None:
+    reTimeState=re.match('[1-9]\d{3}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])',time)
+    if reState==None or reTimeState==None:
         state=0
     else:
         if id+'.json' not in readAllTeacherID():
