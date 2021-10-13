@@ -34,6 +34,7 @@ class modifyDetailWindow:
             dict['title'] = self.ui.titleEdit.currentText()
             dict['time'] = self.ui.timeEdit.text()
             dict['performance']=[]
+            dict['available']='1'
             modifyTeacherInfo(dict)
             QMessageBox.information(self.ui, '操作成功', '信息修改成功')
         else:

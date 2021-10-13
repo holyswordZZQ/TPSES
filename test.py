@@ -10,6 +10,7 @@ from view.loginWindow import loginWindow
 from view.addInfoWindow import addInfoWindow
 from view.modifyInfoWindow import modifyInfoWindow
 from view.addPerforWindow import addPerforWindow
+from view.deleteInfoWindow import deleteInfoWindow
 
 
 app=QApplication([])
@@ -17,11 +18,12 @@ mw=QMainWindow()
 aIW=addInfoWindow()
 mIW=modifyInfoWindow()
 aPW=addPerforWindow()
+
 tiw=teacherInfoWindow(aIW,mIW)
 ww=welcomeWindow(tiw)
 lgw=loginWindow(mw)
 
-mw.setGeometry(0,0,850,1000)
+mw.setGeometry(270,65,781,640)
 mw.setCentralWidget(ww.ui)
 if mw.centralWidget()==ww.ui:
     mw.centralWidget().getintoButton.clicked.connect(lambda :mw.setCentralWidget(tiw.ui))
