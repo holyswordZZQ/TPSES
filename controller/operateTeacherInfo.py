@@ -46,7 +46,6 @@ class operateTeacherInfo:
         return list
 
 
-
     def getTeacherInfoByConditions(self,keyword,college,title):
         firstTempList=[]
         secondTempList=[]

@@ -1,25 +1,29 @@
-from view.loginWindow import loginWindow
+import time
+
+from PySide6 import QtWidgets
+from PySide6.QtWidgets import QWidget
 from view.welcomeWindow import welcomeWindow
-from view.modifyDetailWindow import modifyDetailWindow
+from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QApplication
 from view.teacherInfoWindow import teacherInfoWindow
-from view.modifyInfoWindow import modifyInfoWindow
+from view.loginWindow import loginWindow
 from view.addInfoWindow import addInfoWindow
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
-import os
-import PySide6
-dirname = os.path.dirname(PySide6.__file__)
-plugin_path = os.path.join(dirname, 'plugins', 'platforms')
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = plugin_path
-if __name__ == '__main__':
-    app=QApplication([])
-    e = addInfoWindow()
-    d = modifyInfoWindow()
-    c = teacherInfoWindow(e, d)
-    b = welcomeWindow(c)
-    a = loginWindow(b)
-    a.ui.show()
-    '''mainwindow=QMainWindow()
-    mainwindow.setCentralWidget(b.ui)
-    mainwindow.centralWidget().getNext()
-    mainwindow.setCentralWidget()'''
-    app.exec()
+from view.modifyInfoWindow import modifyInfoWindow
+from view.addPerforWindow import addPerforWindow
+
+
+app=QApplication([])
+mw=QMainWindow()
+aIW=addInfoWindow()
+mIW=modifyInfoWindow()
+tiw=teacherInfoWindow(aIW,mIW,)
+
+ww=welcomeWindow(tiw)
+lgw=loginWindow(mw)
+
+mw.setGeometry(0,0,850,1000)
+mw.setCentralWidget(ww.ui)
+if mw.centralWidget()==ww.ui:
+    mw.centralWidget().getintoButton.clicked.connect(lambda :mw.setCentralWidget(tiw.ui))
+lgw.ui.show()
+app.exec()

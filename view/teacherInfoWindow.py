@@ -10,21 +10,24 @@ class teacherInfoWindow:  # 二级功能界面设计
     def __init__(self,addInfoWindow,modifyInfoWindow):
         self.ot=operateTeacherInfo()
         self.ui = QUiLoader().load('resources/ui/jiemian2.ui')
+
         self.addInfoWindow=addInfoWindow
         self.modifyInfoWindow=modifyInfoWindow
         self.showperforwindow=None
+
         self.image=QPixmap()
         self.image.load('resources/images/teacherInfoWindow.png')
         self.ui.imageLabel.setPixmap(self.image)
 
-        self.flag=1
+        self.flag=1             #flag控制排序
+
         self.button1=QIcon('resources/images/三角1.svg')
         self.button2=QIcon('resources/images/三角2.svg')
         self.ui.sortButton.setIcon(self.button1)
         self.ui.sortButton.clicked.connect(self.showSortedInfo)
-        #size=headeritem.sizeHint()
-        #print(size.width,size.height)
+
         self.data=self.ot.getTeacherInfo()
+
         self.show_all_information()
 
 
@@ -50,7 +53,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.modify_account_button.clicked.connect(self.goTomodify)
         self.ui.refreshButton.clicked.connect(self.refresh)
         #self.ui.addperformanceButton.clicked.connect(self.goToAddPer)
-        self.ui.searchButton.clicked.connect(self.search)
+        self.ui.searchButton.clicked.connect(self.gotoPerform)
        # print(self.ot.sortByTime(self.data))
 
     def show_all_information(self):
@@ -115,7 +118,7 @@ class teacherInfoWindow:  # 二级功能界面设计
             selectedItem.append(item.text())
         return selectedItem
 
-    def search(self):
+    def gotoPerform(self):
         list = self.getSelectedRanges()
         self.showperforwindow = showPerforWindow(list)
         self.showperforwindow.ui.show()
