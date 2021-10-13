@@ -18,4 +18,4 @@ class welcomeWindow():  # 欢迎登录界面
 
     def getNext(self):  #到达下一个页面，即功能页面
         self.ui.close()
-        
+
