@@ -6,12 +6,11 @@ from controller.operateTeacherInfo import operateTeacherInfo
 from view.showPerforWindow import showPerforWindow
 
 class teacherInfoWindow:  # 二级功能界面设计
-    def __init__(self,addInfoWindow,modifyInfoWindow,addPerforWindow):
+    def __init__(self,addInfoWindow,modifyInfoWindow):
         self.ot=operateTeacherInfo()
         self.ui = QUiLoader().load('resources/ui/jiemian2.ui')
         self.addInfoWindow=addInfoWindow
         self.modifyInfoWindow=modifyInfoWindow
-        self.addPerforWindow=addPerforWindow
         self.showperforwindow=None
         self.image=QPixmap()
         self.image.load('resources/images/teacherInfoWindow.png')
@@ -81,6 +80,11 @@ class teacherInfoWindow:  # 二级功能界面设计
             title.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
             self.ui.table.setItem(rowcount, 3, title)
 
+            time = QTableWidgetItem(self.data[i][5])
+            time.setFlags(Qt.ItemIsEnabled)  # 参数名字段不允许修改
+            time.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
+            self.ui.table.setItem(rowcount, 4, time)
+
     def showSortedInfo(self):
         if self.flag==1:
             self.ui.sortButton.setIcon(self.button2)
@@ -117,8 +121,7 @@ class teacherInfoWindow:  # 二级功能界面设计
     def goTomodify(self):  #修改信息页面
         self.modifyInfoWindow.ui.show()
 
-    def goToAddPer(self):  #业绩信息录入页面
-        self.addPerforWindow.ui.show()
+
 
     def refresh(self):  #刷新信息
         self.data=self.ot.getTeacherInfo()

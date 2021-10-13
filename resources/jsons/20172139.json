@@ -1,1 +1,1 @@
-{"id": "20172139", "name": "乙", "college": "计算机学院", "title": "教授", "performance": [], "time": "21342442"}
+{"id": "20172139", "name": "乙", "college": "计算机学院", "title": "教授", "performance": [{"money": "1200", "num": "1", "sum": 1200, "happenTime": "20170416", "latestUpdateTime": "20211012", "type": "1.复试", "credit": 4, "detail": "", "performID": 20210010}], "time": "20201208"}

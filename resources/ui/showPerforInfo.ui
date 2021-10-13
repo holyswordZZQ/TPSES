@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>40</y>
+     <y>60</y>
      <width>781</width>
-     <height>561</height>
+     <height>641</height>
     </rect>
    </property>
    <attribute name="horizontalHeaderStretchLastSection">
@@ -45,6 +45,19 @@
      <string>业绩类型</string>
     </property>
    </column>
+  </widget>
+  <widget class="QPushButton" name="addperforButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>业绩录入</string>
+   </property>
   </widget>
  </widget>
  <resources/>
