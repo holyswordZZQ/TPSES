@@ -52,10 +52,10 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.refreshButton.clicked.connect(self.refresh)
         #self.ui.addperformanceButton.clicked.connect(self.goToAddPer)
         self.ui.searchButton.clicked.connect(self.gotoPerform)
-       # print(self.ot.sortByTime(self.data))
 
+
+    # 将列表中所有教师的简略基本信息显示在表格中
     def show_all_information(self):
-        # 将列表中所有教师的简略基本信息显示在表格中
         self.ui.table.setRowCount(0)
         print('----------------------------------------------------------------------------------')
         for i in range(len(self.data)):
@@ -92,6 +92,7 @@ class teacherInfoWindow:  # 二级功能界面设计
                 time.setTextAlignment(Qt.AlignHCenter)  # 设置文本居中
                 self.ui.table.setItem(rowcount, 4, time)
 
+    #按时间排序的响应函数
     def showSortedInfo(self):
         if self.flag==1:
             self.ui.sortButton.setIcon(self.button2)
@@ -102,12 +103,14 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.flag=1-self.flag
         self.show_all_information()
 
+    #搜索框模糊搜索结果更新
     def refreshTableByConditions(self):
         keyText=self.ui.search_text.text()
         college=self.ui.comboBox_xueyuan.currentText()
         title=self.ui.comboBox_zhicheng.currentText()
         self.data=self.ot.getTeacherInfoByConditions(keyText,college,title)
         self.show_all_information()
+
 
     def getSelectedRanges(self):
         listItem=self.ui.table.selectedItems()
@@ -130,7 +133,8 @@ class teacherInfoWindow:  # 二级功能界面设计
 
     def goToDelete(self):
         list=self.getSelectedRanges()
-        self.ot.deleteInfo(list)
+        if list!=None or list!=[]:
+            self.ot.deleteInfo(list)
         if len(list)!=0:
             QMessageBox.information(self.ui,'操作成功','删除成功')
 

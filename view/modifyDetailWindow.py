@@ -2,8 +2,6 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import Qt
-from controller.addTeacherInfo import getExistedTeacher
-from controller.modifyTeacherInfo import showUnchangedInfo,modifyTeacherInfo
 from controller.operateTeacherInfo import operateTeacherInfo
 import re
 

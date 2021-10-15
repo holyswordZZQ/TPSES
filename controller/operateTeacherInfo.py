@@ -2,13 +2,14 @@ from model.readAllTeacherInfo import readALLTeacherInfo,getTeacherInfo
 import os
 from operator import itemgetter
 from model.writeTeacherInfo import writeTeacherInfo
-
+from model.readAllTeacherInfo import readAllTeacherID
 class operateTeacherInfo:
     def __init__(self):
         self.list=[]
 
 
-#获取所有老师的信息
+#获取所有老师的信息,getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
+
     def getTeacherInfo(self):
         self.list=readALLTeacherInfo()
         specTeacherInfo=[]
@@ -26,7 +27,6 @@ class operateTeacherInfo:
             specTeacherInfo=[]
 
         return lspecTeacherInfo
-# getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
 
 #通过ID获取特定一个老师的信息
     def getTeacherInfoDict(self,id):
@@ -91,6 +91,17 @@ class operateTeacherInfo:
         for item in list:
             dict=self.getTeacherInfoDict(item)
             dict['available']='0'
+        writeTeacherInfo(dict)
+
+    def addTeacherInfo(self,d):
+
+        writeTeacherInfo(d)
+
+    def getExistedTeacher(self,id):
+        list = readAllTeacherID()
+        return id in list
+
+    def modifyTeacherInfo(self,dict):
         writeTeacherInfo(dict)
 
 
