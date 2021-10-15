@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>833</width>
-    <height>557</height>
+    <width>781</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,19 +19,21 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>90</x>
      <y>70</y>
-     <width>651</width>
+     <width>601</width>
      <height>151</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>25</pointsize>
+     <family>Microsoft Tai Le</family>
+     <pointsize>30</pointsize>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 0, 0);</string>
+    <string notr="true">color: rgb(255, 0, 0);
+background-color:transparent;</string>
    </property>
    <property name="text">
     <string>欢迎使用教师业绩统计与评测系统</string>
@@ -40,40 +42,43 @@
   <widget class="QPushButton" name="getintoButton">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>470</y>
+     <x>280</x>
+     <y>440</y>
      <width>181</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
+     <family>Monotype Corsiva</family>
      <pointsize>15</pointsize>
+     <italic>true</italic>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:transparent;
+border-color: rgb(255, 170, 255);</string>
+   </property>
    <property name="text">
-    <string>点此进入系统</string>
+    <string>Click here to enter</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="imageLabel">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>230</y>
-     <width>561</width>
-     <height>351</height>
+     <x>0</x>
+     <y>0</y>
+     <width>781</width>
+     <height>640</height>
     </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: none;</string>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="pixmap">
-    <pixmap>pie.jpg</pixmap>
-   </property>
   </widget>
+  <zorder>imageLabel</zorder>
+  <zorder>label</zorder>
+  <zorder>getintoButton</zorder>
  </widget>
  <resources/>
  <connections/>

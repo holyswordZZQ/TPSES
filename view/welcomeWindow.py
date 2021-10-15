@@ -13,6 +13,9 @@ class welcomeWindow():  # 欢迎登录界面
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(QPixmap("resources/images/welcomeWindow.jpg")))
         self.ui.setPalette(palette)
+        self.image = QPixmap()
+        self.image.load('resources/images/welcomeWindow.jpg')
+        self.ui.imageLabel.setPixmap(self.image)
         self.ui.getintoButton.clicked.connect(self.getNext)
         self.ui.close()
 
