@@ -1,17 +1,16 @@
-from model.readAllTeacherInfo import readALLTeacherInfo,getTeacherInfo
 import os
 from operator import itemgetter
-from model.writeTeacherInfo import writeTeacherInfo
-from model.readAllTeacherInfo import readAllTeacherID
+from model.teacherInfoModel import teacherInfoModel
 class operateTeacherInfo:
     def __init__(self):
         self.list=[]
+        self.tim=teacherInfoModel()
 
 
 #获取所有老师的信息,getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
 
     def getTeacherInfo(self):
-        self.list=readALLTeacherInfo()
+        self.list=self.tim.readALLTeacherInfo()
         specTeacherInfo=[]
         lspecTeacherInfo=[]
 
@@ -34,7 +33,7 @@ class operateTeacherInfo:
         dict={}
         for item in fileList:
             if id+'.json'==item:
-                dict=getTeacherInfo(id)
+                dict=self.tim.getTeacherInfo(id)
         return dict
 
 #获取所有老师的ID
@@ -91,31 +90,14 @@ class operateTeacherInfo:
         for item in list:
             dict=self.getTeacherInfoDict(item)
             dict['available']='0'
-        writeTeacherInfo(dict)
+        self.tim.writeTeacherInfo(dict)
 
-    def addTeacherInfo(self,d):
-
-        writeTeacherInfo(d)
+    def addTeacherInfo(self,data):
+        self.tim.writeTeacherInfo(data)
 
     def getExistedTeacher(self,id):
-        list = readAllTeacherID()
+        list = self.tim.readAllTeacherID()
         return id in list
 
     def modifyTeacherInfo(self,dict):
-        writeTeacherInfo(dict)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       self.tim.writeTeacherInfo(dict)

@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import Qt
-from controller.operateTeacherInfo import operateTeacherInfo
+from controller.operateTeacherInfoController import operateTeacherInfo
 
 import re
 import os
@@ -31,7 +31,7 @@ class addInfoWindow:   #信息增添窗口
                 d['name'] = self.ui.nameEdit.text()
                 d['college'] = self.ui.collegeBox.currentText()
                 d['title'] = self.ui.titleBox.currentText()
-                d['performance'] = ''
+                d['performance'] = []
                 d['time'] = self.ui.timeEdit.text()
                 d['available']='1'
                 self.ot.addTeacherInfo(d)

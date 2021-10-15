@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import Qt
-from controller.operateTeacherInfo import operateTeacherInfo
+from controller.operateTeacherInfoController import operateTeacherInfo
 import re
 from view.modifyDetailWindow import modifyDetailWindow
 
@@ -22,7 +22,7 @@ class modifyInfoWindow():
         if pattern == None:
             QMessageBox.warning(self.ui, '输入错误', '输入的id不符合要求')
         else:
-            if not ot.getExistedTeacher(textID+'.json'):
+            if not self.ot.getExistedTeacher(textID+'.json'):
                 QMessageBox.warning(self.ui, '出错了', 'id不存在，请先添加信息')
             else:
                 self.modifyDetailWindow=modifyDetailWindow(textID)
