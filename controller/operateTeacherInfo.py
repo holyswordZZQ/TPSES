@@ -55,7 +55,7 @@ class operateTeacherInfo:
                 firstTempList.append(dic)
         if keyword!='':
             for dic in firstTempList:
-                if(dic.get('name').find(keyword)!=-1 or dic.get('id').find(keyword)!=-1):
+                if(dic.get('name').find(keyword)!=-1 or dic.get('id').find(keyword)!=-1):   #模糊了起来
                     secondTempList.append(dic)
         else:
             secondTempList=firstTempList

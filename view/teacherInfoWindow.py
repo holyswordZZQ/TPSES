@@ -25,9 +25,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.button2=QIcon('resources/images/三角2.svg')
         self.ui.sortButton.setIcon(self.button1)
         self.ui.sortButton.clicked.connect(self.showSortedInfo)
-
         self.data=self.ot.getTeacherInfo()
-
         self.show_all_information()
 
 
