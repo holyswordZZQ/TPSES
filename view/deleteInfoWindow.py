@@ -3,7 +3,7 @@ from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile, QSize
 from PySide6.QtGui import Qt, QPixmap, QPicture,QIcon
 import re
-from controller.addTeacherInfo import getExistedTeacher
+from controller.operateTeacherInfo import getExistedTeacher
 from controller.operateTeacherInfo import operateTeacherInfo
 
 class deleteInfoWindow:
