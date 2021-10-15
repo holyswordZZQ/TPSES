@@ -6,7 +6,7 @@ from PySide6.QtWidgets import QMainWindow, QMessageBox, QWidgetItem, QTableWidge
 from PySide6.QtWidgets import QApplication
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
-from controller.operateTeacherInfo import operateTeacherInfo
+from controller.operateTeacherInfoController import operateTeacherInfo
 from view.perforDetailWindow import perforDetailWindow
 
 class showPerforWindow:
