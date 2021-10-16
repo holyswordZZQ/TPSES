@@ -1,16 +1,16 @@
-from model.readAllTeacherInfo import readALLTeacherInfo,getTeacherInfo
 import os
 from operator import itemgetter
-from model.writeTeacherInfo import writeTeacherInfo
-
+from model.teacherInfoModel import teacherInfoModel
 class operateTeacherInfo:
     def __init__(self):
         self.list=[]
+        self.tim=teacherInfoModel()
 
 
-#获取所有老师的信息
+#获取所有老师的信息,getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
+
     def getTeacherInfo(self):
-        self.list=readALLTeacherInfo()
+        self.list=self.tim.readALLTeacherInfo()
         specTeacherInfo=[]
         lspecTeacherInfo=[]
 
@@ -26,7 +26,6 @@ class operateTeacherInfo:
             specTeacherInfo=[]
 
         return lspecTeacherInfo
-# getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
 
 #通过ID获取特定一个老师的信息
     def getTeacherInfoDict(self,id):
@@ -34,7 +33,7 @@ class operateTeacherInfo:
         dict={}
         for item in fileList:
             if id+'.json'==item:
-                dict=getTeacherInfo(id)
+                dict=self.tim.getTeacherInfo(id)
         return dict
 
 #获取所有老师的ID
@@ -55,7 +54,7 @@ class operateTeacherInfo:
                 firstTempList.append(dic)
         if keyword!='':
             for dic in firstTempList:
-                if(dic.get('name').find(keyword)!=-1 or dic.get('id').find(keyword)!=-1):
+                if(dic.get('name').find(keyword)!=-1 or dic.get('id').find(keyword)!=-1):   #模糊了起来
                     secondTempList.append(dic)
         else:
             secondTempList=firstTempList
@@ -91,20 +90,14 @@ class operateTeacherInfo:
         for item in list:
             dict=self.getTeacherInfoDict(item)
             dict['available']='0'
-        writeTeacherInfo(dict)
+        self.tim.writeTeacherInfo(dict)
 
+    def addTeacherInfo(self,data):
+        self.tim.writeTeacherInfo(data)
 
+    def getExistedTeacher(self,id):
+        list = self.tim.readAllTeacherID()
+        return id in list
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def modifyTeacherInfo(self,dict):
+       self.tim.writeTeacherInfo(dict)
