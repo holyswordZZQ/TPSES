@@ -10,7 +10,7 @@ import os
 class addInfoWindow:   #信息增添窗口
     def __init__(self):
         self.ot=operateTeacherInfo()
-        qfile_stats = QFile('resources/ui/addWindow.ui')
+        qfile_stats = QFile('resources/ui/addTeacherInfoWindow.ui')
         self.ui = QUiLoader().load(qfile_stats)
         self.ui.submitButton.clicked.connect(self.submit)  #提交按钮
         self.ui.cancelButton.clicked.connect(self.returnToJieMian2)  #返回上一级按钮

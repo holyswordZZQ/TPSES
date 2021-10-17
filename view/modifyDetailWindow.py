@@ -12,7 +12,7 @@ class modifyDetailWindow:
         self.ot=operateTeacherInfo()
         self.textID = textID
         self.data=data
-        qfile_stats = QFile('resources/ui/modifyDetailWindow.ui')
+        qfile_stats = QFile('resources/ui/modifyTeacherDetaiInfolWindow.ui')
         self.ui = QUiLoader().load(qfile_stats)
 
 

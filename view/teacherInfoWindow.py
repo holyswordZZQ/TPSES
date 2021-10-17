@@ -20,7 +20,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.data = self.ot.getTeacherInfo()
         print(self.data)
         #ui设置
-        self.ui = QUiLoader().load('resources/ui/jiemian2.ui')
+        self.ui = QUiLoader().load('resources/ui/showTeacherInfoWindow.ui')
         self.image=QPixmap()
         self.image.load('resources/images/teacherInfoWindow.png')
         self.ui.imageLabel.setPixmap(self.image)
