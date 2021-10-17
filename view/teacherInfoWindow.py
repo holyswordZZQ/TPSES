@@ -6,6 +6,9 @@ from controller.operateTeacherInfoController import operateTeacherInfo
 from view.showPerforWindow import showPerforWindow
 from view.addInfoWindow import addInfoWindow
 from view.modifyDetailWindow import modifyDetailWindow
+from view.importFileWindow import importFileWindow
+from view.exportTeacherInfoWindow import exportTeacherInfoWindow
+
 
 
 
@@ -15,6 +18,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         #创建controller对象,获取数据
         self.ot=operateTeacherInfo()
         self.data = self.ot.getTeacherInfo()
+        print(self.data)
         #ui设置
         self.ui = QUiLoader().load('resources/ui/jiemian2.ui')
         self.image=QPixmap()
@@ -34,6 +38,8 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.modify_account_button.clicked.connect(self.goToDetailmodify)
         self.ui.refreshButton.clicked.connect(self.refresh)
         self.ui.searchButton.clicked.connect(self.gotoPerform)
+        self.ui.excelImportButton.clicked.connect(self.excelImport)
+        self.ui.exportButton.clicked.connect(self.excelExport)
 
 
         self.show_all_information()
@@ -41,6 +47,8 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.addInfoWindow=addInfoWindow()
         self.showperforwindow=None
         self.modifyDetailWindow=None
+        self.importfilewindow=None
+        self.exportteacherinfowindow=None
 
     # 将列表中所有教师的简略基本信息显示在表格中
     def show_all_information(self):
@@ -134,3 +142,14 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.ui.search_text.setText('')
         self.ui.comboBox_xueyuan.setCurrentText('全部')
         self.ui.comboBox_zhicheng.setCurrentText('全部')
+
+    def excelImport(self):
+
+        self.importfilewindow=importFileWindow()
+        self.importfilewindow.ui.show()
+
+    def excelExport(self):
+        self.exportteacherinfowindow=exportTeacherInfoWindow(self.data)
+        self.exportteacherinfowindow.ui.show()
+
+

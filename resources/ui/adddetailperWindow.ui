@@ -203,22 +203,22 @@
    </property>
    <item>
     <property name="text">
-     <string>1.复试</string>
+     <string>1.论文</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>2.预答辩</string>
+     <string>2.软著</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>3.试卷出题</string>
+     <string>3.项目</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>4.论文评审</string>
+     <string>4.获奖</string>
     </property>
    </item>
    <item>

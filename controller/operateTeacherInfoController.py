@@ -95,7 +95,7 @@ class operateTeacherInfo:
     def addTeacherInfo(self,data):
         self.tim.writeTeacherInfo(data)
 
-    def getExistedTeacher(self,id):
+    def getExistedTeacher(self,id):  #判断id是否已存在
         list = self.tim.readAllTeacherID()
         return id in list
 

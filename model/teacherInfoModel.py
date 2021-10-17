@@ -23,6 +23,13 @@ class teacherInfoModel:
     def readAllTeacherID(self):
         return os.listdir('resources/jsons')
 
+    def getAllTeacherID(self):
+        fileList = os.listdir('resources/jsons')
+        list = []
+        for item in fileList:
+            list.append(item.split('.', 1)[0])
+        return list
+
     def getTeacherInfo(self,id):
         with open('resources/jsons/{}'.format(id + '.json'), 'r', encoding='utf-8') as rfile:
             d = json.load(rfile)
