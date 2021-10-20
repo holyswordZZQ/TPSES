@@ -1,6 +1,6 @@
 import os
 import json
-
+from entity.teacherEntity.Teacher import Teacher
 
 
 class teacherInfoModel:
@@ -10,34 +10,49 @@ class teacherInfoModel:
 # 返回字典数组[{id:'' name:'','college:'','title':'',performance:'','time:''},{...}]
     def readALLTeacherInfo(self):
         dict_list = []
+        teachers=[]
         # 当打开二级页面时就自动打开所有文件并把文件内容存储到程序变量中
-        file_list = os.listdir('resources/jsons')  # 获取文件夹中的所有json文件
+        file_list = os.listdir('resources/teacherData')  # 获取文件夹中的所有json文件
         for item in file_list:
             if item.find('a') == -1:
-                with open('resources/jsons/' + str(item), 'r', encoding='utf-8') as f:
+                with open('resources/teacherData/' + str(item), 'r', encoding='utf-8') as f:
                     load_dict = json.load(f)  # 把文件打开，并转化为字典元素
-                    dict_list.append(load_dict)  # 将信息添加到列表中
-        print(dict_list)
-        return dict_list
+                    id=load_dict.get("id")
+                    name=load_dict.get("name")
+                    college=load_dict.get("college")
+                    title=load_dict.get("title")
+                    time=load_dict.get("time")
+                    available=load_dict.get("available")
+                    teacher=Teacher(id,name,college,title,time,available)
+                    teachers.append(teacher)
+
+        return teachers
 
     def readAllTeacherID(self):
-        return os.listdir('resources/jsons')
+        return os.listdir('resources/teacherData')
 
     def getAllTeacherID(self):
-        fileList = os.listdir('resources/jsons')
+        fileList = os.listdir('resources/teacherData')
         list = []
         for item in fileList:
             list.append(item.split('.', 1)[0])
         return list
 
     def getTeacherInfo(self,id):
-        with open('resources/jsons/{}'.format(id + '.json'), 'r', encoding='utf-8') as rfile:
+        with open('resources/teacherData/{}'.format(id + '.json'), 'r', encoding='utf-8') as rfile:
             d = json.load(rfile)
-        return d
+            id=d.get("id")
+            name=d.get("name")
+            college=d.get("college")
+            title=d.get("title")
+            time=d.get("time")
+            available=d.get("available")
+            teacher=Teacher(id,name,college,title,time,available)
+        return teacher
 
-    def writeTeacherInfo(self,id):
-        with open('resources/jsons/{}'.format(id['id']) + '.json', 'w', encoding='utf-8') as wfile:
-            json.dump(id, wfile, ensure_ascii=False)
+    def writeTeacherInfo(self,dict):
+        with open('resources/teacherData/{}'.format(dict.get("id")) + '.json', 'w', encoding='utf-8') as wfile:
+            json.dump(dict, wfile, ensure_ascii=False)
 
     def readPerforAndCredit(self):
         with open('resources/material/perfor and credit.json', 'r', encoding='utf-8') as rfile:

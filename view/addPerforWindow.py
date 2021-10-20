@@ -6,7 +6,7 @@ from PySide6.QtCore import QFile
 #from controller.getTime import getTime
 #from controller.getTime import getPerforID,operateID,isIDRight,addper,getCredit
 from controller.operateTeacherInfoController import operateTeacherInfo
-from controller.operateTeacherPerformController import operateTeacherPer
+from controller.operateTeacherPerformController import operateTeacherPerform
 
 
 class addPerforWindow:
@@ -15,7 +15,7 @@ class addPerforWindow:
         self.ui.addButton.clicked.connect(self.add)
         self.ui.cancelButton.clicked.connect(self.cancel)
 
-        self.otp=operateTeacherPer()
+        self.otp=operateTeacherPerform()
 
     def add(self):
         oTI=operateTeacherInfo()

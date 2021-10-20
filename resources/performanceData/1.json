@@ -1,0 +1,27 @@
+{
+        "performanceID": "1",
+        "credit": "5",
+        "type": "1.复试",
+        "teacherID": "20251212",
+        "lastUpdateTime": "",
+        "performanceHappenTime": "",
+        "relatedPic": "",
+        "note":"",
+        "paperTitle": "",
+        "paperAuthor": "",
+        "paperMoneyAmount": "",
+        "paperJournals": "",
+        "paperIF": "",
+        "monographName": "",
+        "monographBelonged": "" ,
+        "monographMoneyAmount": "",
+        "prizeName": "",
+        "prizeAwardingCompany": "",
+        "prizeWinner": "",
+        "prizeAmount": "",
+        "projectName": "",
+        "projectRequester": "",
+        "projectPrincipal": "",
+        "projectMoneyAmount": ""
+}
+

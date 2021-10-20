@@ -7,34 +7,20 @@ class operateTeacherInfo:
         self.tim=teacherInfoModel()
 
 
-#获取所有老师的信息,getTeacherInfo()返回一个[[]],每一个小列表装着四个信息,id,name,college,title
+#获取所有老师的信息,getTeacherInfo()返回一个[Teacher],每一个Teacher装着对应的信息
 
     def getTeacherInfo(self):
         self.list=self.tim.readALLTeacherInfo()
-        specTeacherInfo=[]
-        lspecTeacherInfo=[]
-
-        for i in range(len(self.list)):
-            specTeacherInfo.append(self.list[i].get('id'))
-            specTeacherInfo.append(self.list[i].get('name'))
-            specTeacherInfo.append(self.list[i].get('college'))
-            specTeacherInfo.append(self.list[i].get('title'))
-            specTeacherInfo.append(self.list[i].get('performance'))
-            specTeacherInfo.append(self.list[i].get('time'))
-            specTeacherInfo.append(self.list[i].get('available'))
-            lspecTeacherInfo.append(specTeacherInfo)
-            specTeacherInfo=[]
-
-        return lspecTeacherInfo
+        return self.list
 
 #通过ID获取特定一个老师的信息
-    def getTeacherInfoDict(self,id):
-        fileList=os.listdir('resources/jsons')
-        dict={}
-        for item in fileList:
-            if id+'.json'==item:
-                dict=self.tim.getTeacherInfo(id)
-        return dict
+    def getSingleTeacherInfo(self,id):
+        fileList=os.listdir('resources/teacherData')
+        if id+'.json' in fileList:
+            teacher = self.tim.getTeacherInfo(id)
+            return teacher
+        else:
+            return -1
 
 #获取所有老师的ID
     def getTeacherIDList(self):
@@ -50,54 +36,45 @@ class operateTeacherInfo:
         secondTempList=[]
         finalList=[]
         for dic in self.list:    #采用self.list,省去了读文件的步骤
-            if (dic.get('college')==college or college=='全部')and(dic.get('title')==title or title=='全部'):
+            if (dic.college==college or college=='全部')and(dic.title==title or title=='全部'):
                 firstTempList.append(dic)
         if keyword!='':
             for dic in firstTempList:
-                if(dic.get('name').find(keyword)!=-1 or dic.get('id').find(keyword)!=-1):   #模糊了起来
+                if(dic.name.find(keyword)!=-1 or dic.id.find(keyword)!=-1):   #模糊了起来
                     secondTempList.append(dic)
         else:
             secondTempList=firstTempList
-        print(secondTempList)
 
-
-        for dic in secondTempList:
-            list=[]
-            print(dic)
-            list.append(dic.get('id'))
-            list.append(dic.get('name'))
-            list.append(dic.get('college'))
-            list.append(dic.get('title'))
-            list.append(dic.get('performance'))
-            list.append(dic.get('time'))
-            list.append(dic.get('available'))
-            finalList.append(list)
-        return finalList
+        return secondTempList
 
     def sortByTime(self,data,flag):
         print(data)
         for i in range(len(data)):
             for j in range(0,len(data)-i-1):
-                if int(data[j][5])>int(data[j+1][5]):
+                if int(data[j].time)>int(data[j+1].time):
                     data[j],data[j+1]=data[j+1],data[j]
         if flag==True:
             return data
         else:
             return list(reversed(data))
 
-    def deleteInfo(self,list):
-        dict={}
-        for item in list:
-            dict=self.getTeacherInfoDict(item)
-            dict['available']='0'
+    def deleteInfo(self,teacherIDList):
+        for id in teacherIDList:
+            teacher=self.getSingleTeacherInfo(id)
+
+            dic={
+                "id":teacher.id,
+                "name":teacher.name,
+                "college":teacher.college,
+                "title":teacher.title,
+                "time":teacher.time,
+                "available":'0'
+            }
+            self.tim.writeTeacherInfo(dic)
+
+    def addTeacherInfo(self,dict):
         self.tim.writeTeacherInfo(dict)
 
-    def addTeacherInfo(self,data):
-        self.tim.writeTeacherInfo(data)
-
-    def getExistedTeacher(self,id):  #判断id是否已存在
-        list = self.tim.readAllTeacherID()
-        return id in list
 
     def modifyTeacherInfo(self,dict):
-       self.tim.writeTeacherInfo(dict)
+        self.tim.writeTeacherInfo(dict)
