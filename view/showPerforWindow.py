@@ -6,15 +6,17 @@ from PySide6.QtWidgets import QMainWindow, QMessageBox, QWidgetItem, QTableWidge
 from PySide6.QtWidgets import QApplication
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
-from controller.operateTeacherInfoController import operateTeacherInfo
+from controller.operateTeacherPerformController import operateTeacherPerform
 from view.perforDetailWindow import perforDetailWindow
 
 class showPerforWindow:
-    def __init__(self,list):
+    def __init__(self,IDlist):
         self.ui = QUiLoader().load('resources/ui/showPerforInfo.ui')
-        self.list=list
+        self.IDlist=IDlist
         self.addperforwindow = addPerforWindow()
-        self.oTI=operateTeacherInfo()
+
+        self.otp=operateTeacherPerform()
+
         self.showAllInformation()
         self.ui.table.itemClicked.connect(self.showDetail)
         self.ui.addperforButton.clicked.connect(self.goToAddPer)
@@ -22,54 +24,51 @@ class showPerforWindow:
         self.perfordetailwindow=None
 
     def showAllInformation(self):
-        if len(self.list)==0:
             self.ui.table.setRowCount(0)
-            teacherList=self.oTI.getTeacherIDList()
-            for item in teacherList:
-                dict = self.oTI.getTeacherInfoDict(item)
-                perforList = dict['performance']
-                for i in range(len(perforList)):
+            performances=self.otp.getTeacherPerformsByID(self.IDlist)
+            for performance in performances:
                     rowcount = self.ui.table.rowCount()
                     self.ui.table.insertRow(rowcount)
-                    perforID = QTableWidgetItem(str(perforList[i]["performID"]))
+
+                    perforID = QTableWidgetItem(performance.performanceID)
                     perforID.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount, 0, perforID)
 
-                    teacherID = QTableWidgetItem(item)
+                    teacherID = QTableWidgetItem(performance.teacherID)
                     teacherID.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount, 1, teacherID)
 
-                    workCredit = QTableWidgetItem(str(perforList[i]["credit"]))
+                    workCredit = QTableWidgetItem(performance.credit)
                     workCredit.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount, 2, workCredit)
 
-                    perforType = QTableWidgetItem(perforList[i]['type'])
+                    perforType = QTableWidgetItem(performance.type)
                     perforType.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount, 3, perforType)
 
-        else:
-            self.ui.table.setRowCount(0)
-            for item in self.list:
-                dict=self.oTI.getTeacherInfoDict(item)
-                perforList=dict['performance']
-                for i in range(len(perforList)):
-                    rowcount=self.ui.table.rowCount()
-                    self.ui.table.insertRow(rowcount)
-                    perforID=QTableWidgetItem(str(perforList[i]["performID"]))
-                    perforID.setTextAlignment(Qt.AlignHCenter)
-                    self.ui.table.setItem(rowcount,0,perforID)
-
-                    teacherID=QTableWidgetItem(item)
-                    teacherID.setTextAlignment(Qt.AlignHCenter)
-                    self.ui.table.setItem(rowcount,1,teacherID)
-
-                    workCredit=QTableWidgetItem(str(perforList[i]["credit"]))
-                    workCredit.setTextAlignment(Qt.AlignHCenter)
-                    self.ui.table.setItem(rowcount,2,workCredit)
-
-                    perforType=QTableWidgetItem(perforList[i]['type'])
-                    perforType.setTextAlignment(Qt.AlignHCenter)
-                    self.ui.table.setItem(rowcount,3,perforType)
+        # else:
+        #     self.ui.table.setRowCount(0)
+        #     for item in self.list:
+        #         dict=self.oTI.getTeacherInfoDict(item)
+        #         perforList=dict['performance']
+        #         for i in range(len(perforList)):
+        #             rowcount=self.ui.table.rowCount()
+        #             self.ui.table.insertRow(rowcount)
+        #             perforID=QTableWidgetItem(str(perforList[i]["performID"]))
+        #             perforID.setTextAlignment(Qt.AlignHCenter)
+        #             self.ui.table.setItem(rowcount,0,perforID)
+        #
+        #             teacherID=QTableWidgetItem(item)
+        #             teacherID.setTextAlignment(Qt.AlignHCenter)
+        #             self.ui.table.setItem(rowcount,1,teacherID)
+        #
+        #             workCredit=QTableWidgetItem(str(perforList[i]["credit"]))
+        #             workCredit.setTextAlignment(Qt.AlignHCenter)
+        #             self.ui.table.setItem(rowcount,2,workCredit)
+        #
+        #             perforType=QTableWidgetItem(perforList[i]['type'])
+        #             perforType.setTextAlignment(Qt.AlignHCenter)
+        #             self.ui.table.setItem(rowcount,3,perforType)
 
     def showDetail(self):
         listItem=self.ui.table.selectedItems()

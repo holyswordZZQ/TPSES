@@ -1,0 +1,42 @@
+{
+    "id":"20251212",
+    "name":"赵哥哥",
+    "college":"计算机学院",
+    "title":"讲师",
+    "time":"20170109",
+    "performance":[
+        {
+            "briefInfo":
+            {
+                "performID":20210014,
+                "credit":4,
+                "type":"1.复试"
+             },
+            "detailInfo":
+            {
+                "paperTitle":"",
+                "paperAuthor": {},
+                "paperMoneyAmount": "",
+                "paperJournals": "",
+                "paperIF": "",
+                "monographName": "",
+                "monographBelonged": "",
+                "monographMoneyAmount": "",
+                "subjectName": "",
+                "subjectRequester": "",
+                "subjectPrincipal": "",
+                "subjectMoneyAmount": "",
+                "prizeName": "",
+                "awardingCompany": "",
+                "prizeWinner": "",
+                "prizeMoneyAmount": "",
+                "lastUpdateTime": "",
+                "performanceHappenTime": "",
+                "relatedPic":{},
+                "note": ""
+             }
+        },
+        {}
+    ],
+    "available":"1"
+}

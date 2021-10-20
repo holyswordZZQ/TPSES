@@ -22,7 +22,7 @@ class modifyInfoWindow():
         if pattern == None:
             QMessageBox.warning(self.ui, '输入错误', '输入的id不符合要求')
         else:
-            if not self.ot.getExistedTeacher(textID+'.json'):
+            if self.ot.getSingleTeacherInfo(textID+'.json')==-1:
                 QMessageBox.warning(self.ui, '出错了', 'id不存在，请先添加信息')
             else:
                 self.modifyDetailWindow=modifyDetailWindow(textID)

@@ -16,12 +16,10 @@ class modifyDetailWindow:
         self.ui = QUiLoader().load(qfile_stats)
 
 
-        for item in self.data:
-            if item[0]==self.textID:
-                self.ui.nameEdit.setText(item[1])
-                self.ui.timeEdit.setText(item[5])
-                self.performance=item[4]
-                print
+        for teacher in self.data:
+            if teacher.id==self.textID:
+                self.ui.nameEdit.setText(teacher.name)
+                self.ui.timeEdit.setText(teacher.time)
 
         self.ui.ensureButton.clicked.connect(self.change)
         self.ui.cancelButton.clicked.connect(self.cancel)
@@ -35,7 +33,6 @@ class modifyDetailWindow:
             dict['college'] = self.ui.collegeEdit.currentText()
             dict['title'] = self.ui.titleEdit.currentText()
             dict['time'] = self.ui.timeEdit.text()
-            dict['performance']=self.performance
             dict['available']='1'
             self.ot.modifyTeacherInfo(dict)
             QMessageBox.information(self.ui, '操作成功', '信息修改成功')

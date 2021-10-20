@@ -43,18 +43,18 @@ class operateTeacherInfoByExcelController:
     def exportToExcel(self,data,filename):
         teacherInfoDictList=[]
         for item in data:
-            if item[6]=='1':
                 teacherInfoDict={}
-                teacherInfoDict['id']=item[0]
-                teacherInfoDict['name']=item[1]
-                teacherInfoDict['college']=item[2]
-                teacherInfoDict['title']=item[3]
-                teacherInfoDict['time']=item[5]
+                teacherInfoDict['id']=item.id
+                teacherInfoDict['name']=item.name
+                teacherInfoDict['college']=item.college
+                teacherInfoDict['title']=item.title
+                teacherInfoDict['time']=item.time
+                teacherInfoDict['available']='否' if item.available=='0' else '是'
                 teacherInfoDictList.append(teacherInfoDict)
         pf = pd.DataFrame(teacherInfoDictList)
-        order = ['id', 'name','college','title','time']
+        order = ['id', 'name','college','title','time','available']
         pf = pf[order]
-        tableHead={'id':'教师id','name':'教师姓名','college':'学院','title':'职称','time':'入职时间'}
+        tableHead={'id':'教师id','name':'教师姓名','college':'学院','title':'职称','time':'入职时间','available':'是否在职'}
         pf.rename(columns=tableHead, inplace=True)
         file_path = pd.ExcelWriter(filename)
         pf.fillna(' ', inplace=True)
