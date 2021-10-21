@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import Qt
-from controller.operateTeacherInfoController import operateTeacherInfo
+from controller.operateTeacherInfoController import operateTeacherInfoController
 import re
 from view.modifyDetailWindow import modifyDetailWindow
 

@@ -2,14 +2,14 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import Qt
-from controller.operateTeacherInfoController import operateTeacherInfo
+from controller.operateTeacherInfoController import operateTeacherInfoController
 import re
 
 class modifyDetailWindow:
     def __init__(self,textID,data):
         print(data)
         print(textID)
-        self.ot=operateTeacherInfo()
+        self.ot=operateTeacherInfoController()
         self.textID = textID
         self.data=data
         qfile_stats = QFile('resources/ui/modifyTeacherDetaiInfolWindow.ui')

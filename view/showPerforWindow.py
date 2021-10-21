@@ -1,10 +1,10 @@
 from PySide6.QtGui import Qt
 
-from TPSES.view.addPerforWindow import addPerforWindow
+from view.addPerforWindow import addPerforWindow
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QWidgetItem, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
-from TPSES.controller.operateTeacherPerformController import operateTeacherPerformController
-from TPSES.view.perforDetailWindow import perforDetailWindow
+from controller.operateTeacherPerformController import operateTeacherPerformController
+from view.perforDetailWindow import perforDetailWindow
 
 class showPerforWindow:
     def __init__(self,IDlist):

@@ -1,6 +1,6 @@
 import  os
 import  json
-from TPSES.entity.performanceEntity.teacherPerformance import teacherPerformance
+from entity.performanceEntity.teacherPerformance import teacherPerformance
 class teacherPerformanceModel:
     def __init__(self):
         pass

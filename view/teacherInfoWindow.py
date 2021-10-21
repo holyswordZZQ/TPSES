@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile, QSize
 from PySide6.QtGui import Qt, QPixmap, QPicture,QIcon
-from controller.operateTeacherInfoController import operateTeacherInfo
+from controller.operateTeacherInfoController import operateTeacherInfoController
 from view.showPerforWindow import showPerforWindow
 from view.addInfoWindow import addInfoWindow
 from view.modifyDetailWindow import modifyDetailWindow
@@ -16,8 +16,8 @@ class teacherInfoWindow:  # 二级功能界面设计
 
     def __init__(self):
         #创建controller对象,获取数据
-        self.ot=operateTeacherInfo()
-        self.data = self.ot.getTeacherInfo()
+        self.otic=operateTeacherInfoController()
+        self.data = self.otic.getTeacherInfo()
         print(self.data)
         #ui设置
         self.ui = QUiLoader().load('resources/ui/showTeacherInfoWindow.ui')
@@ -131,7 +131,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         list=self.getSelectedRanges()
         print(list)
         if list!=None and list!=[]:
-            self.ot.deleteInfo(list)
+            self.otic.deleteInfo(list)
             QMessageBox.information(self.ui,'操作成功','删除成功')
 
     def refresh(self):  #刷新信息
