@@ -1,11 +1,12 @@
 import  os
 import  json
-from entity.performanceEntity.teacherPerformance import teacherPerformance
+from TPSES.entity.performanceEntity.teacherPerformance import teacherPerformance
 class teacherPerformanceModel:
     def __init__(self):
         pass
-    def getAllTeacherPerformance(self):
+    def getTeacherPerformance(self,teacherIDList=[]):
         performances=[]
+        selectedByTeacherIDPerformances=[]
         fileList=os.listdir("resources/performanceData")
         for filename in fileList:
             with open("resources/performanceData/"+filename,encoding='utf-8') as f:
@@ -31,14 +32,21 @@ class teacherPerformanceModel:
 
 
                 performances.append(performance)
-        return performances
+        if teacherIDList!=[]:
+            for id in teacherIDList:
+                for performance in performances:
+                    if id==performance.teacherID:
+                        selectedByTeacherIDPerformances.append(performance)
+            return selectedByTeacherIDPerformances
+        else:
+            return performances
 
     def getTeacherPerformanceByID(self,IDlist):
         performances=self.getAllTeacherPerformance()
         selectedPerformance=[]
         for perform in performances:
             if perform.teacherID in IDlist:
-                selectedPerform.append(perform)
+                selectedPerformance.append(perform)
         return selectedPerformance
 
     def addTeacherPerformance(self,performance):

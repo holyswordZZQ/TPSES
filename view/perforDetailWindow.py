@@ -2,14 +2,11 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainText
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 from PySide6.QtGui import Qt
-from controller.operateTeacherInfoController import operateTeacherInfo
-
+from TPSES.entity.performanceEntity import teacherPerformance
 
 class perforDetailWindow:
-    def __init__(self,id,j):
+    def __init__(self,performace):
         self.ui = QUiLoader().load('resources/ui/perforDetailWindow.ui')
-        self.id=id
-        self.j=j
         self.ui.perforIDEdit.setText(str(j['performID']))
         self.ui.teacherIDEdit.setText(id)
         self.ui.moneyEdit.setText(str(j['money']))
