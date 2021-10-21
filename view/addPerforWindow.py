@@ -5,8 +5,8 @@ from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
 #from controller.getTime import getTime
 #from controller.getTime import getPerforID,operateID,isIDRight,addper,getCredit
-from controller.operateTeacherInfoController import operateTeacherInfo
-from controller.operateTeacherPerformController import operateTeacherPerform
+from controller.operateTeacherInfoController import operateTeacherInfoController
+from controller.operateTeacherPerformController import operateTeacherPerformController
 
 
 class addPerforWindow:
@@ -15,14 +15,14 @@ class addPerforWindow:
         self.ui.addButton.clicked.connect(self.add)
         self.ui.cancelButton.clicked.connect(self.cancel)
 
-        self.otp=operateTeacherPerform()
+        self.otpc=operateTeacherPerformController()
 
     def add(self):
         oTI=operateTeacherInfo()
         perfor_dict={}
         inputId=self.ui.idEdit.text()
         inputTime=self.ui.timeEdit.text()
-        state=self.otp.isIDRight(inputId,inputTime)
+        state=self.otpc.isIDRight(inputId,inputTime)
         if state==0:
             QMessageBox.warning(self.ui,'出错了','输入的id或发生时间不符合要求')
         elif state==1:

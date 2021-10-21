@@ -1,7 +1,7 @@
 import os
 from operator import itemgetter
 from model.teacherInfoModel import teacherInfoModel
-class operateTeacherInfo:
+class operateTeacherInfoController:
     def __init__(self):
         self.list=[]
         self.tim=teacherInfoModel()
