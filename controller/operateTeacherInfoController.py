@@ -34,7 +34,6 @@ class operateTeacherInfoController:
     def getTeacherInfoByConditions(self,keyword,college,title):
         firstTempList=[]
         secondTempList=[]
-        finalList=[]
         for dic in self.list:    #采用self.list,省去了读文件的步骤
             if (dic.college==college or college=='全部')and(dic.title==title or title=='全部'):
                 firstTempList.append(dic)

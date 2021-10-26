@@ -1,6 +1,11 @@
+import sys
+
 import pandas as pd
 import xlwt
 import os
+from PySide6.QtUiTools import QUiLoader
+from PySide6.QtWidgets import QWidget, QApplication, QPushButton, QStackedWidget
+
 '''data=pd.read_excel('C:/Users/张子健/githubRepos/GitHub/TPSES/resources/teacherInfoExcel/教师信息.xlsx')
 print(data)
 print(list(data))
@@ -23,4 +28,4 @@ pf.fillna(' ',inplace = True)
 pf.to_excel(file_path,encoding = 'utf-8',index = False)
 #保存表格
 file_path.save()'''
-print(os.path.exists('4342.xlsx'))
+print(str(sys.maxsize))
