@@ -3,7 +3,7 @@ import  json
 from entity.performanceEntity.teacherPerformance import teacherPerformance
 class teacherPerformanceModel:
     def __init__(self):
-        self.performances=self.getAllTeacherPerformances()
+        self.performances=self.getAllTeacherPerformances()  #本层维护一个所有业绩对象的列表
     def getAllTeacherPerformances(self):
         performancesList=[]
         fileList = os.listdir("resources/performanceData")

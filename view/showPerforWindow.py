@@ -8,38 +8,38 @@ from PySide6.QtUiTools import QUiLoader
 from controller.operateTeacherPerformController import operateTeacherPerformController
 from view.perforDetailWindow import perforDetailWindow
 from view.setPerformStartAndEndTimeWindow import setPerformStartAndEndTimeWindow
+from view.exportPerformFileWindow import exportPerformFileWindow
 
 class showPerforWindow:
     def __init__(self,IDlist):
         self.ui = QUiLoader().load('resources/ui/showPerforInfo.ui')
+        self.ui.setGeometry(270,65,748,675)
         self.otpc = operateTeacherPerformController()
         self.IDlist=IDlist   #相应教师信息列表
-        self.performList=self.otpc.turnTeacherIdToPerformIdList(self.IDlist)
-        self.otpc.getShownPerformances(self.IDlist)
+        self.performList=self.otpc.turnTeacherIdToPerformIdList(self.IDlist)  #本窗口维护一个教师履历ID的列表，根据它的内容改变表格中显示的业绩
+        self.otpc.getShownPerformances(self.IDlist)  #设置controller层shownPerformances的初值
         self.addperforwindow = addPerforWindow()
 
-
-        if len(self.performList)==0:
-            self.showAllInformation(0)
-        else:
-            self.showAllInformation(1)
+        self.showAllInformation()
         self.ui.table.itemClicked.connect(self.showDetail)
-        self.ui.addperforButton.clicked.connect(self.goToAddPer)
+        self.ui.addperforButton.clicked.connect(self.goToAddPerform)
         self.ui.returnButton.clicked.connect(self.returnprefer)
         self.ui.refreshButton.clicked.connect(self.refresh)
-        self.ui.moneyComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
+        self.ui.moneyComboBox.currentIndexChanged.connect(self.refreshTableByConditions)  #三个筛选框
         self.ui.perforTypeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
         self.ui.happenTimeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
+        self.ui.exportButton.clicked.connect(self.exportPerform)
 
         self.perfordetailwindow=None
         self.setperformstartandendtimewindow=None
+        self.exportperformfilewindow=None
 
-    def showAllInformation(self,flag):
+    def showAllInformation(self):
             self.ui.table.setRowCount(0)
-            performances=self.otpc.getTeacherPerformsByID(self.performList,perforID='0')
+            performances=self.otpc.getTeacherPerformsByID(self.performList,perforID='0')  #根据业绩ID列表返回一个业绩对象列表
             if performances==None:
                 return
-            for performance in performances:
+            for performance in performances:   #表格中显示信息
                     rowcount = self.ui.table.rowCount()
                     self.ui.table.insertRow(rowcount)
 
@@ -63,32 +63,30 @@ class showPerforWindow:
                     perforHappenTime.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount,4,perforHappenTime)
 
-    def refreshTableByConditions(self,index=None,periodTime=None):
+    def refreshTableByConditions(self,index=None,periodTime=None):  #根据三个筛选框的条件来改变表格中的内容
         moneyText=self.ui.moneyComboBox.currentText()
-        if moneyText=='10000以上':
+        if moneyText=='10000以上':  #将金额超过1w的业绩设置为10000——最大
             moneyText='10000-'+str(sys.maxsize)
-        elif moneyText=='全部':
+        elif moneyText=='全部':  #金额筛选条件为全部时，设置为'0-0'以方便后续的比较操作
             moneyText='0-0'
         perforTypeText=self.ui.perforTypeComboBox.currentText()
         happenTimeText=self.ui.happenTimeComboBox.currentText()
         if periodTime==None:
             if happenTimeText=='自定义时间段':
-                self.setperformstartandendtimewindow=setPerformStartAndEndTimeWindow(self.refreshTableByConditions)
+                self.setperformstartandendtimewindow=setPerformStartAndEndTimeWindow(self.refreshTableByConditions)   #显示设置自定义时间的窗口
                 self.setperformstartandendtimewindow.ui.show()
             elif len(happenTimeText)==9:
                 str1=happenTimeText.split('-',1)[0]+'0000'
                 str2=happenTimeText.split('-',1)[1]+'0000'
                 happenTimeText=str1+'-'+str2
-                self.performList = self.otpc.getPerformInfoByConditions(moneyText, perforTypeText, happenTimeText)
+                self.performList = self.otpc.getPerformInfoByConditions(moneyText, perforTypeText, happenTimeText)    #返回符合三者条件的业绩ID列表
             elif happenTimeText=='全部':
                 self.performList=self.otpc.getPerformInfoByConditions(moneyText, perforTypeText, '0-0')
         else:
             self.ui.happenTimeComboBox.setEditText(periodTime)
-            print(periodTime)
             self.performList = self.otpc.getPerformInfoByConditions(moneyText, perforTypeText, periodTime)
-            print(self.performList)
 
-        self.showAllInformation(1)
+        self.showAllInformation()
     def showDetail(self):
         listItem=self.ui.table.selectedItems()
         if len(listItem)>1:
@@ -96,16 +94,16 @@ class showPerforWindow:
         else:
             itemRow=listItem[0].row()
             print(itemRow)
-            teacherIdItem=self.ui.table.item(itemRow,1)
+            teacherIdItem=self.ui.table.item(itemRow,1)   #得到选中行的教师ID以及业绩ID
             teacherId=teacherIdItem.text()
             perforIdItem=self.ui.table.item(itemRow,0)
             perforId=perforIdItem.text()
-            performance=self.otpc.getTeacherPerformsByID(IDlist=[teacherId],perforID=perforId)
+            performance=self.otpc.getTeacherPerformsByID(IDlist=[teacherId],perforID=perforId)  #返回所选中的业绩对象
             self.perfordetailwindow=perforDetailWindow(performance[0])
             print(performance[0].performanceID)
             self.perfordetailwindow.ui.show()
 
-    def goToAddPer(self):  #业绩信息录入页面
+    def goToAddPerform(self):  #业绩信息录入页面
         self.addperforwindow.ui.show()
 
     def returnprefer(self):  #返回上一级
@@ -116,8 +114,9 @@ class showPerforWindow:
         self.ui.moneyComboBox.setCurrentText('全部')
         self.ui.perforTypeComboBox.setCurrentText('全部')
         self.ui.happenTimeComboBox.setCurrentText('全部')
+        self.showAllInformation()
 
-        if len(self.performList) == 0:
-            self.showAllInformation(0)
-        else:
-            self.showAllInformation(1)
+    def exportPerform(self):
+        self.exportperformfilewindow=exportPerformFileWindow(self.performList)
+        self.exportperformfilewindow.ui.show()
+

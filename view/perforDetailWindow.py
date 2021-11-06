@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtCore import QFile
-from PySide6.QtGui import Qt
+from PySide6.QtCore import QFile, QSize
+from PySide6.QtGui import Qt, QPixmap
 from entity.performanceEntity import teacherPerformance
 
 class perforDetailWindow:
@@ -55,6 +55,12 @@ class perforDetailWindow:
         self.ui.happenTimeEdit.setText(performance.performanceHappenTime)
         self.ui.noteEdit.setText(performance.note)
         self.ui.creditEdit.setText(performance.credit)
+        self.relatedPicImage=QPixmap()
+        if self.relatedPicImage.load(performance.relatedPic):
+            size=QSize(271,121)
+            self.relatedPicImage.scaled(size,aspectMode=Qt.KeepAspectRatio,mode=Qt.FastTransformation)
+            self.ui.relatedPicEdit.setPixmap(self.relatedPicImage)
+
 
         self.ui.nextPageButton.clicked.connect(self.goToNextPage)
         self.ui.preferPageButton.clicked.connect(self.goToPreferPage)

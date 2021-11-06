@@ -6,7 +6,6 @@ class operateTeacherInfoController:
         self.list=[]
         self.tim=teacherInfoModel()
 
-
 #获取所有老师的信息,getTeacherInfo()返回一个[Teacher],每一个Teacher装着对应的信息
 
     def getTeacherInfo(self):

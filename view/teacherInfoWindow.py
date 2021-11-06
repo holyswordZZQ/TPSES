@@ -18,7 +18,6 @@ class teacherInfoWindow:  # 二级功能界面设计
         #创建controller对象,获取数据
         self.otic=operateTeacherInfoController()
         self.data = self.otic.getTeacherInfo()
-        print(self.data)
         #ui设置
         self.ui = QUiLoader().load('resources/ui/showTeacherInfoWindow.ui')
         self.image=QPixmap()
