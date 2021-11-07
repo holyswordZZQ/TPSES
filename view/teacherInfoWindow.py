@@ -18,7 +18,6 @@ class teacherInfoWindow:  # 二级功能界面设计
         #创建controller对象,获取数据
         self.otic=operateTeacherInfoController()
         self.data = self.otic.getTeacherInfo()
-        print(self.data)
         #ui设置
         self.ui = QUiLoader().load('resources/ui/showTeacherInfoWindow.ui')
         self.image=QPixmap()
@@ -98,7 +97,7 @@ class teacherInfoWindow:  # 二级功能界面设计
         keyText=self.ui.search_text.text()
         college=self.ui.comboBox_xueyuan.currentText()
         title=self.ui.comboBox_zhicheng.currentText()
-        self.data=self.ot.getTeacherInfoByConditions(keyText,college,title)
+        self.data=self.otic.getTeacherInfoByConditions(keyText,college,title)
         self.ui.table.setSortingEnabled(False)
         self.show_all_information()
         self.ui.table.setSortingEnabled(True)
@@ -135,7 +134,7 @@ class teacherInfoWindow:  # 二级功能界面设计
             QMessageBox.information(self.ui,'操作成功','删除成功')
 
     def refresh(self):  #刷新信息
-        self.data=self.ot.getTeacherInfo()
+        self.data=self.otic.getTeacherInfo()
         self.show_all_information()
         self.ui.search_text.setText('')
         self.ui.comboBox_xueyuan.setCurrentText('全部')

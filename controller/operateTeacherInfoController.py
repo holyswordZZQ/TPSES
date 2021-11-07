@@ -6,7 +6,6 @@ class operateTeacherInfoController:
         self.list=[]
         self.tim=teacherInfoModel()
 
-
 #获取所有老师的信息,getTeacherInfo()返回一个[Teacher],每一个Teacher装着对应的信息
 
     def getTeacherInfo(self):
@@ -34,7 +33,6 @@ class operateTeacherInfoController:
     def getTeacherInfoByConditions(self,keyword,college,title):
         firstTempList=[]
         secondTempList=[]
-        finalList=[]
         for dic in self.list:    #采用self.list,省去了读文件的步骤
             if (dic.college==college or college=='全部')and(dic.title==title or title=='全部'):
                 firstTempList.append(dic)

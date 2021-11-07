@@ -12,7 +12,7 @@ class teacherPerformance():
         self.monographName=monographName                #业绩对应专著名
         self.monographBelonged=monographBelonged        #业绩对应专著作者
         self.monographMoneyAmount=monographMoneyAmount  #业绩对应的专著金额
-        self.prizeName = prizeName                      # 业绩对应的奖项名字
+        self.prizeName = prizeName                      #业绩对应的奖项名字
         self.prizeAwardingCompany = prizeAwardingCompany     # 业绩对应的赞助商
         self.prizeWinner = prizeWinner                  # 业绩对应的获奖者
         self.prizeAmount = prizeAmount                  # 业绩对应的奖金

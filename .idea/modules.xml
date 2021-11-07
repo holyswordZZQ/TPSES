@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/TPSES.iml" filepath="$PROJECT_DIR$/.idea/TPSES.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/bert-summarization-master/.idea/bert-summarization-master.iml" filepath="$USER_HOME$/Desktop/bert-summarization-master/.idea/bert-summarization-master.iml" />
     </modules>
   </component>
 </project>
