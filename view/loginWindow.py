@@ -16,7 +16,6 @@ class loginWindow():
         palette.setBrush(QPalette.Window, QBrush(QPixmap("resources/images/loginWindow.jpg")))
         self.ui.setPalette(palette)
 
-
     def loginTonext(self):  # 登录界面点击登录按钮之后
         textname = self.ui.nameEdit.text()  # 所输入的用户名
         textpassword = self.ui.passwordEdit.text()  # 所输入的密码
