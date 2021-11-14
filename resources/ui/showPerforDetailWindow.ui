@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>666</width>
-    <height>488</height>
+    <width>624</width>
+    <height>482</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <pointsize>15</pointsize>
+    <pointsize>12</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -21,9 +21,9 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>200</x>
      <y>0</y>
-     <width>671</width>
+     <width>461</width>
      <height>511</height>
     </rect>
    </property>
@@ -37,13 +37,13 @@
        <x>0</x>
        <y>0</y>
        <width>681</width>
-       <height>441</height>
+       <height>480</height>
       </rect>
      </property>
      <widget class="QLabel" name="label_24">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>70</x>
         <y>50</y>
         <width>91</width>
         <height>20</height>
@@ -56,15 +56,15 @@
      <widget class="QLabel" name="label_25">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>110</y>
+        <x>70</x>
+        <y>160</y>
         <width>91</width>
         <height>31</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>15</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -74,8 +74,8 @@
      <widget class="QLabel" name="label_26">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>180</y>
+        <x>70</x>
+        <y>260</y>
         <width>101</width>
         <height>31</height>
        </rect>
@@ -87,34 +87,21 @@
      <widget class="QLabel" name="label_27">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>250</y>
-        <width>54</width>
+        <x>70</x>
+        <y>360</y>
+        <width>91</width>
         <height>41</height>
        </rect>
       </property>
       <property name="text">
-       <string>金额：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_28">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>330</y>
-        <width>121</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>影响因子(IF)：</string>
+       <string>发表时间：</string>
       </property>
      </widget>
      <widget class="QLabel" name="paperTitleEdit_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>40</y>
+        <x>150</x>
+        <y>45</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -123,11 +110,11 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="paperMoneyAmountEdit_2">
+     <widget class="QLabel" name="paperTimeEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>250</y>
+        <x>150</x>
+        <y>364</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -139,21 +126,8 @@
      <widget class="QLabel" name="paperAuthorEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>110</y>
-        <width>161</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="paperIFEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>330</y>
+        <x>150</x>
+        <y>160</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -165,8 +139,8 @@
      <widget class="QLabel" name="paperJournalsEdit">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>180</y>
+        <x>150</x>
+        <y>260</y>
         <width>161</width>
         <height>31</height>
        </rect>
@@ -182,14 +156,14 @@
        <x>0</x>
        <y>0</y>
        <width>681</width>
-       <height>441</height>
+       <height>480</height>
       </rect>
      </property>
      <widget class="QLabel" name="label_41">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>50</y>
+        <x>70</x>
+        <y>60</y>
         <width>91</width>
         <height>31</height>
        </rect>
@@ -201,61 +175,35 @@
      <widget class="QLabel" name="label_42">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>150</y>
-        <width>71</width>
+        <x>70</x>
+        <y>190</y>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>赞助商：</string>
+       <string>获奖项目：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_43">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>250</y>
-        <width>71</width>
+        <x>70</x>
+        <y>330</y>
+        <width>91</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>获奖人：</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_44">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>350</y>
-        <width>54</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>金额：</string>
+       <string>颁布单位：</string>
       </property>
      </widget>
      <widget class="QLabel" name="prizeNameEdit_5">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>45</y>
+        <x>150</x>
+        <y>60</y>
         <width>211</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="prizeAwardingCompanyEdit_5">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>145</y>
-        <width>201</width>
         <height>31</height>
        </rect>
       </property>
@@ -266,8 +214,8 @@
      <widget class="QLabel" name="prizeWinnerEdit_5">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>250</y>
+        <x>150</x>
+        <y>185</y>
         <width>291</width>
         <height>41</height>
        </rect>
@@ -279,8 +227,8 @@
      <widget class="QLabel" name="prizeMoneyAmountEdit_5">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>350</y>
+        <x>150</x>
+        <y>325</y>
         <width>251</width>
         <height>41</height>
        </rect>
@@ -296,14 +244,14 @@
        <x>0</x>
        <y>0</y>
        <width>681</width>
-       <height>441</height>
+       <height>480</height>
       </rect>
      </property>
      <widget class="QLabel" name="label_45">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>70</y>
+        <x>70</x>
+        <y>140</y>
         <width>101</width>
         <height>31</height>
        </rect>
@@ -315,8 +263,8 @@
      <widget class="QLabel" name="label_46">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>150</y>
+        <x>70</x>
+        <y>220</y>
         <width>91</width>
         <height>21</height>
        </rect>
@@ -328,8 +276,8 @@
      <widget class="QLabel" name="label_47">
       <property name="geometry">
        <rect>
-        <x>140</x>
-        <y>220</y>
+        <x>70</x>
+        <y>290</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -341,21 +289,21 @@
      <widget class="QLabel" name="label_48">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>300</y>
-        <width>91</width>
+        <x>22</x>
+        <y>370</y>
+        <width>151</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>项目经费：</string>
+       <string>申报人担任职务：</string>
       </property>
      </widget>
      <widget class="QLabel" name="projectNameEdit_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>65</y>
+        <x>150</x>
+        <y>140</y>
         <width>191</width>
         <height>31</height>
        </rect>
@@ -367,8 +315,8 @@
      <widget class="QLabel" name="projectMoneyAmountEdit_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>300</y>
+        <x>200</x>
+        <y>290</y>
         <width>191</width>
         <height>31</height>
        </rect>
@@ -380,8 +328,8 @@
      <widget class="QLabel" name="projectPrincipalEdit_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>220</y>
+        <x>150</x>
+        <y>290</y>
         <width>191</width>
         <height>31</height>
        </rect>
@@ -393,8 +341,73 @@
      <widget class="QLabel" name="projectRequesterEdit_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>150</y>
+        <x>150</x>
+        <y>216</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>70</y>
+        <width>91</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>项目类型：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="projectTypeEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>66</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="projectRequesterRole">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>370</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>445</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>申报日期：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="projectApplyTime">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>440</y>
         <width>191</width>
         <height>31</height>
        </rect>
@@ -410,53 +423,53 @@
        <x>0</x>
        <y>0</y>
        <width>681</width>
-       <height>441</height>
+       <height>480</height>
       </rect>
      </property>
      <widget class="QLabel" name="label_49">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>70</x>
         <y>50</y>
         <width>101</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>专著名称：</string>
+       <string>软著名称：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_50">
       <property name="geometry">
        <rect>
-        <x>120</x>
+        <x>70</x>
         <y>180</y>
         <width>91</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>专著作者：</string>
+       <string>著作权人：</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_51">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>320</y>
+        <x>86</x>
+        <y>290</y>
         <width>101</width>
         <height>31</height>
        </rect>
       </property>
       <property name="text">
-       <string>专著金额：</string>
+       <string>登记号：</string>
       </property>
      </widget>
      <widget class="QLabel" name="monographNameEdit_2">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>40</y>
+        <x>150</x>
+        <y>47</y>
         <width>251</width>
         <height>41</height>
        </rect>
@@ -468,8 +481,8 @@
      <widget class="QLabel" name="monographMoneyAmountEdit_2">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>310</y>
+        <x>150</x>
+        <y>280</y>
         <width>251</width>
         <height>41</height>
        </rect>
@@ -481,8 +494,34 @@
      <widget class="QLabel" name="monographAuthorEdit">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>170</y>
+        <x>150</x>
+        <y>176</y>
+        <width>251</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>400</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>登记时间：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="monographRegisTimeEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>390</y>
         <width>251</width>
         <height>41</height>
        </rect>
@@ -492,44 +531,132 @@
       </property>
      </widget>
     </widget>
-    <widget class="QPushButton" name="preferPageButton">
+    <widget class="QWidget" name="bookWidget" native="true">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>443</y>
-       <width>75</width>
-       <height>31</height>
+       <x>0</x>
+       <y>0</y>
+       <width>681</width>
+       <height>480</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>上一页</string>
-     </property>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>50</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>教材名称：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>140</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>出版社：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>220</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ISBN编号：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>340</y>
+        <width>91</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>出版时间：</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bookNameEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>60</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bookPublishEdit">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>140</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bookISBNEdit">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>230</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="bookPublishTimeEdit">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>350</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
     </widget>
+    <zorder>bookWidget</zorder>
+    <zorder>projectWidget</zorder>
+    <zorder>monographWidget</zorder>
+    <zorder>prizeWidget</zorder>
+    <zorder>paperWidget</zorder>
    </widget>
    <widget class="QWidget" name="page_2">
-    <widget class="QLabel" name="label_21">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>290</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>相关图片：</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_18">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>90</y>
+       <x>60</x>
+       <y>120</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -541,8 +668,8 @@
     <widget class="QLabel" name="label_22">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>410</y>
+       <x>90</x>
+       <y>330</y>
        <width>54</width>
        <height>31</height>
       </rect>
@@ -554,24 +681,29 @@
     <widget class="QLabel" name="label_20">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>230</y>
+       <x>30</x>
+       <y>260</y>
        <width>131</width>
        <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>业绩发生时间：</string>
+      <string>业绩更新时间：</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_17">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>30</y>
+       <x>60</x>
+       <y>50</y>
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
      </property>
      <property name="text">
       <string>业绩类型：</string>
@@ -580,8 +712,8 @@
     <widget class="QLabel" name="label_19">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>160</y>
+       <x>76</x>
+       <y>190</y>
        <width>81</width>
        <height>20</height>
       </rect>
@@ -590,24 +722,11 @@
       <string>教师ID：</string>
      </property>
     </widget>
-    <widget class="QLabel" name="relatedPicEdit">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>280</y>
-       <width>271</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="perforTypeEdit">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>30</y>
+       <x>140</x>
+       <y>50</y>
        <width>151</width>
        <height>31</height>
       </rect>
@@ -619,8 +738,8 @@
     <widget class="QLabel" name="teacherIDEdit">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>150</y>
+       <x>140</x>
+       <y>184</y>
        <width>151</width>
        <height>31</height>
       </rect>
@@ -632,8 +751,8 @@
     <widget class="QLabel" name="creditEdit">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>90</y>
+       <x>140</x>
+       <y>120</y>
        <width>151</width>
        <height>31</height>
       </rect>
@@ -645,8 +764,8 @@
     <widget class="QLabel" name="noteEdit">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>410</y>
+       <x>140</x>
+       <y>330</y>
        <width>151</width>
        <height>31</height>
       </rect>
@@ -658,8 +777,8 @@
     <widget class="QLabel" name="happenTimeEdit">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>220</y>
+       <x>140</x>
+       <y>254</y>
        <width>151</width>
        <height>31</height>
       </rect>
@@ -668,26 +787,94 @@
       <string/>
      </property>
     </widget>
-    <widget class="QPushButton" name="nextPageButton">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>450</y>
-       <width>75</width>
-       <height>24</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>下一页</string>
-     </property>
-    </widget>
    </widget>
   </widget>
+  <widget class="QPushButton" name="nextPageButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>270</y>
+     <width>101</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>具体信息</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="preferPageButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>170</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>业绩简介</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="relatedPicButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>370</y>
+     <width>101</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>查看图片</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bgLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>191</width>
+     <height>491</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="roleLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>102</width>
+     <height>103</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>bgLabel</zorder>
+  <zorder>stackedWidget</zorder>
+  <zorder>nextPageButton</zorder>
+  <zorder>preferPageButton</zorder>
+  <zorder>relatedPicButton</zorder>
+  <zorder>roleLabel</zorder>
  </widget>
  <resources/>
  <connections/>

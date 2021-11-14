@@ -1,0 +1,40 @@
+.bglabel{{
+  background-color:#c8e2fb;
+}}
+
+
+.table{{
+background-color:whitesmoke;
+  border-width: 1px;
+  border-color:black;
+border-inline-width: 25px;
+}}
+.big_button:pressed{{
+  background-color:blanchedalmond;
+}}
+
+QHeaderView::section{{
+  background: whitesmoke;
+  border-bottom:1px solid darkgrey;
+  border-right:1px solid darkgrey;
+}}
+QTableCornerButton::section{{
+  background: whitesmoke;
+  border-bottom:1px solid darkgrey;
+  border-right:1px solid darkgrey;
+}}
+QComboBox{{
+  border:1px solid green;
+}}
+QTableWidget::Item{{
+
+  border-right: 0px solid transparent;
+
+}}
+
+QScrollBar::handle::horizontal{{
+  background:#A9A9A9;
+}}
+QScrollBar::handle::vertical{{
+  background:#A9A9A9;
+}}

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>829</width>
+    <width>838</width>
     <height>643</height>
    </rect>
   </property>
@@ -16,38 +16,6 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QPushButton" name="add_account_button">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>310</y>
-     <width>111</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(205, 205, 205);</string>
-   </property>
-   <property name="text">
-    <string>新增信息</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="modify_account_button">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>390</y>
-     <width>111</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(205, 205, 205);</string>
-   </property>
-   <property name="text">
-    <string>修改信息</string>
-   </property>
-  </widget>
   <widget class="QTableWidget" name="table">
    <property name="geometry">
     <rect>
@@ -59,7 +27,8 @@
    </property>
    <property name="styleSheet">
     <string notr="true">
-QTableWidget&gt;QTableWidgetItem{ border-color:black;
+QTableWidget&gt;QTableWidgetItem{
+ border-color:black;
 border-width:5px};</string>
    </property>
    <property name="sortingEnabled">
@@ -120,7 +89,7 @@ border-width:5px};</string>
   <widget class="QComboBox" name="comboBox_xueyuan">
    <property name="geometry">
     <rect>
-     <x>404</x>
+     <x>443</x>
      <y>60</y>
      <width>101</width>
      <height>21</height>
@@ -145,7 +114,7 @@ border-width:5px};</string>
   <widget class="QComboBox" name="comboBox_zhicheng">
    <property name="geometry">
     <rect>
-     <x>503</x>
+     <x>542</x>
      <y>60</y>
      <width>101</width>
      <height>21</height>
@@ -177,34 +146,13 @@ border-width:5px};</string>
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>50</y>
-     <width>131</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>8</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>选中工号可查看业绩详情</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="search_button">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>20</y>
-     <width>61</width>
-     <height>31</height>
+     <x>580</x>
+     <y>0</y>
+     <width>71</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="text">
@@ -215,8 +163,8 @@ border-width:5px};</string>
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>20</y>
-     <width>341</width>
+     <y>6</y>
+     <width>371</width>
      <height>31</height>
     </rect>
    </property>
@@ -228,9 +176,9 @@ border-width:5px};</string>
    <property name="geometry">
     <rect>
      <x>700</x>
-     <y>20</y>
+     <y>0</y>
      <width>71</width>
-     <height>28</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
@@ -241,25 +189,25 @@ border-width:5px};</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>550</y>
+     <y>440</y>
      <width>111</width>
      <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(205, 205, 205);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
-    <string>查看业绩</string>
+    <string>查看全部业绩</string>
    </property>
   </widget>
   <widget class="QLabel" name="imageLabel">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>60</y>
-     <width>141</width>
-     <height>141</height>
+     <x>0</x>
+     <y>50</y>
+     <width>294</width>
+     <height>301</height>
     </rect>
    </property>
    <property name="text">
@@ -269,33 +217,17 @@ border-width:5px};</string>
     <enum>Qt::PlainText</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="deleteButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>470</y>
-     <width>111</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(205, 205, 205);</string>
-   </property>
-   <property name="text">
-    <string>删除信息</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="excelImportButton">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>230</y>
+     <y>280</y>
      <width>111</width>
      <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(205, 205, 205);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>Excel导入</string>
@@ -304,16 +236,54 @@ border-width:5px};</string>
   <widget class="QPushButton" name="exportButton">
    <property name="geometry">
     <rect>
-     <x>650</x>
-     <y>57</y>
-     <width>101</width>
-     <height>24</height>
+     <x>30</x>
+     <y>360</y>
+     <width>111</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string>导出成excel</string>
    </property>
   </widget>
+  <widget class="QLabel" name="divideLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>841</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="logoLabel">
+   <property name="geometry">
+    <rect>
+     <x>3</x>
+     <y>9</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>divideLabel</zorder>
+  <zorder>comboBox_xueyuan</zorder>
+  <zorder>comboBox_zhicheng</zorder>
+  <zorder>search_button</zorder>
+  <zorder>search_text</zorder>
+  <zorder>refreshButton</zorder>
+  <zorder>searchButton</zorder>
+  <zorder>exportButton</zorder>
+  <zorder>imageLabel</zorder>
+  <zorder>table</zorder>
+  <zorder>excelImportButton</zorder>
+  <zorder>logoLabel</zorder>
  </widget>
  <resources/>
  <connections/>

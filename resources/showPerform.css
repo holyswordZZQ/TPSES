@@ -1,0 +1,35 @@
+QLineEdit {{
+    background-color: white;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 0 8px;
+    color:black
+}}
+
+QLabel{{
+    color:black
+}}
+
+QComboBox{{
+    background-color: white;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 0 8px;
+    color:black;
+}}
+QLabel{{
+  background-color:#c8e2fb;
+}}
+QTableWidget{{
+    border:1px solid black;
+}}
+QHeaderView::section{{
+  background: whitesmoke;
+  border-bottom:1px solid darkgrey;
+  border-right:1px solid darkgrey;
+}}
+QTableCornerButton::section{{
+  background: whitesmoke;
+  border-bottom:1px solid darkgrey;
+  border-right:1px solid darkgrey;
+}}

@@ -1,19 +1,37 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile
-from PySide6.QtGui import Qt
+from PySide6.QtGui import Qt, QPixmap
 from controller.operateTeacherInfoController import operateTeacherInfoController
-
+from qt_material import apply_stylesheet
 import re
 import os
 
 class addInfoWindow:   #信息增添窗口
     def __init__(self):
         self.otic=operateTeacherInfoController()
-        qfile_stats = QFile('resources/ui/addTeacherInfoWindow.ui')
-        self.ui = QUiLoader().load(qfile_stats)
+        self.ui = QUiLoader().load('resources/ui/addTeacherInfoWindow.ui')
+        apply_stylesheet(self.ui,'light_blue.xml',invert_secondary=True)
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
+        with open('resources/addTeacherInfo.css') as file:
+            styleStr=file.read().format(**os.environ)
+
+           # self.ui.setStyleSheet(stylesheet+file.read().format(**os.environ))
+        self.ui.idEdit.setStyleSheet(styleStr)  #设置每个控件的样式
+        self.ui.nameEdit.setStyleSheet(styleStr)
+        self.ui.timeEdit.setStyleSheet(styleStr)
+        self.ui.titleBox.setStyleSheet(styleStr)
+        self.ui.collegeBox.setStyleSheet(styleStr)
+        self.ui.label1.setStyleSheet(styleStr)
+        self.ui.label_7.setStyleSheet(styleStr)
+        self.ui.label3.setStyleSheet(styleStr)
+        #print(self.ui.styleSheet())
         self.ui.submitButton.clicked.connect(self.submit)  #提交按钮
         self.ui.cancelButton.clicked.connect(self.returnToJieMian2)  #返回上一级按钮
+
+        self.image = QPixmap()
+        self.image.load('resources/images/2.jpg')
+        self.ui.bgLabel.setPixmap(self.image)
 
     def submit(self):
         textID = self.ui.idEdit.text()

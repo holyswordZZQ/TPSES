@@ -27,7 +27,6 @@
    </property>
    <property name="font">
     <font>
-     <family>Microsoft Tai Le</family>
      <pointsize>30</pointsize>
     </font>
    </property>
@@ -50,7 +49,6 @@ background-color:transparent;</string>
    </property>
    <property name="font">
     <font>
-     <family>Monotype Corsiva</family>
      <pointsize>15</pointsize>
      <italic>true</italic>
     </font>
@@ -68,7 +66,7 @@ border-color: rgb(255, 170, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>781</width>
+     <width>810</width>
      <height>640</height>
     </rect>
    </property>
