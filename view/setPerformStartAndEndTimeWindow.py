@@ -6,6 +6,7 @@ from PySide6.QtGui import Qt, QPixmap, QPicture,QIcon
 class setPerformStartAndEndTimeWindow:
     def __init__(self,refreshTableFunc):
         self.ui=QUiLoader().load('resources/ui/setPerformStartAndEndTimeWindow.ui')
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
         self.refreshTableFunc=refreshTableFunc
         self.ui.ensureButton.clicked.connect(self.refresh)
         self.ui.cancelButton.clicked.connect(self.cancel)

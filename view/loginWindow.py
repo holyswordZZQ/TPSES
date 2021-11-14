@@ -1,20 +1,26 @@
-from PySide6.QtCore import QFile
+
 from PySide6.QtGui import QPalette, QBrush, QPixmap
-from PySide6.QtWidgets import  QMessageBox
+from PySide6.QtWidgets import QMessageBox, QMainWindow
 from controller.loginVerify import loginVerify
 #from utils.drawPie import drawPie
 from PySide6.QtUiTools import QUiLoader
+from qt_material import apply_stylesheet, QtStyleTools
 
-class loginWindow():
+class loginWindow:
     def __init__(self,mainWindow):
-        #drawPie()
-        qfile_stats = QFile('resources/ui/LoginWindow.ui')  # 打开ui文件
-        self.mainWindow=mainWindow
-        self.ui = QUiLoader().load(qfile_stats)  # 加载ui文件
+        #drawPie()  # 打开ui文件
+
+        self.ui = QUiLoader().load('resources/ui/LoginWindow.ui')  # 加载ui文件
+        # apply_stylesheet(self.ui, 'light_blue.xml', invert_secondary=True,extra=extra)
+        # stylesheet = self.ui.styleSheet()
+        # with open('resources/loginWindow.css') as file:
+        #     self.ui.setStyleSheet(stylesheet+file.read())
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
         self.ui.Loginbutton.clicked.connect(self.loginTonext)
         palette = QPalette()
         palette.setBrush(QPalette.Window, QBrush(QPixmap("resources/images/loginWindow.jpg")))
         self.ui.setPalette(palette)
+        self.mainWindow = mainWindow
 
 
     def loginTonext(self):  # 登录界面点击登录按钮之后

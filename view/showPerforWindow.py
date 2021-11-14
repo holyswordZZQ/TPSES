@@ -1,6 +1,8 @@
+import os
 import sys
 
-from PySide6.QtGui import Qt
+from PySide6.QtGui import Qt, QPixmap
+from qt_material import apply_stylesheet
 
 from view.addPerforWindow import addPerforWindow
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QWidgetItem, QTableWidgetItem
@@ -9,11 +11,28 @@ from controller.operateTeacherPerformController import operateTeacherPerformCont
 from view.perforDetailWindow import perforDetailWindow
 from view.setPerformStartAndEndTimeWindow import setPerformStartAndEndTimeWindow
 from view.exportPerformFileWindow import exportPerformFileWindow
+extra={
+    # Button colors
+    'danger': '#dc3545',
+    'warning': '#ffc107',
+    'success': '#17a2b8',
 
+    # Font
+    'font-family': 'Roboto',
+}
 class showPerforWindow:
     def __init__(self,IDlist):
         self.ui = QUiLoader().load('resources/ui/showPerforInfo.ui')
-        self.ui.setGeometry(270,65,748,675)
+        apply_stylesheet(self.ui, 'light_blue.xml', invert_secondary=True,extra=extra)
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
+        with open('resources/showPerform.css') as file:
+            styleStr = file.read().format(**os.environ)
+        self.ui.setGeometry(270,65,810,635)
+        self.ui.divideLabel.setStyleSheet(styleStr)
+        self.ui.table.setStyleSheet(styleStr)
+        self.image = QPixmap()
+        self.image.load('resources/images/yun.png')
+        self.ui.imageLabel.setPixmap(self.image)
         self.otpc = operateTeacherPerformController()
         self.IDlist=IDlist   #相应教师信息列表
         self.performList=self.otpc.turnTeacherIdToPerformIdList(self.IDlist)  #本窗口维护一个教师履历ID的列表，根据它的内容改变表格中显示的业绩
@@ -29,6 +48,9 @@ class showPerforWindow:
         self.ui.perforTypeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
         self.ui.happenTimeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
         self.ui.exportButton.clicked.connect(self.exportPerform)
+        self.ui.addperforButton.setProperty('class','danger')
+        self.ui.returnButton.setProperty('class','warning')
+        self.ui.exportButton.setProperty('class','success')
 
         self.perfordetailwindow=None
         self.setperformstartandendtimewindow=None

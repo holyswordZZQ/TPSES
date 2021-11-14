@@ -1,3 +1,5 @@
+import os
+
 from view.welcomeWindow import welcomeWindow
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QFileDialog
 from PySide6.QtWidgets import QApplication
@@ -12,12 +14,20 @@ from controller.operateTeacherPerformController import operateTeacherPerformCont
 class addPerforWindow:
     def __init__(self):
         self.ui = QUiLoader().load('resources/ui/addPerforWindow.ui')
-
+        stylesheet=self.ui.styleSheet()
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
+        print(stylesheet)
+        with open('resources/addPerform.css') as file:
+            stlst=file.read().format(**os.environ)
+            self.ui.setStyleSheet(stylesheet+stlst)
+        print(stylesheet)
+        self.ui.bgLabel.setProperty('class','bglabel')
         self.ui.perforTypeBox.setCurrentText('论文')  #设置初始的界面，仅仅显示论文的录入
         self.ui.paperWidget.show()
         self.ui.monographWidget.close()
         self.ui.projectWidget.close()
         self.ui.prizeWidget.close()
+        self.ui.bookWidget.close()
 
         self.ui.paperSubmmitButton.clicked.connect(self.add)  #设置添加按钮的点击响应事件
         self.ui.monographSubmmitButton.clicked.connect(self.add)
@@ -36,26 +46,38 @@ class addPerforWindow:
 
     def modifyUi(self):
         perforType=self.ui.perforTypeBox.currentText()   #根据下拉框中的选项动态设置相应ui
-        if perforType=='论文':
+        if perforType=='论文' or perforType=='其它':
             self.ui.paperWidget.show()
             self.ui.monographWidget.close()
             self.ui.projectWidget.close()
             self.ui.prizeWidget.close()
+            self.ui.bookWidget.close()
         elif perforType=='软著':
             self.ui.paperWidget.close()
             self.ui.monographWidget.show()
             self.ui.projectWidget.close()
             self.ui.prizeWidget.close()
+            self.ui.bookWidget.close()
         elif perforType=='项目':
             self.ui.paperWidget.close()
             self.ui.monographWidget.close()
             self.ui.projectWidget.show()
             self.ui.prizeWidget.close()
+            self.ui.bookWidget.close()
         elif perforType=='获奖':
             self.ui.paperWidget.close()
             self.ui.monographWidget.close()
             self.ui.projectWidget.close()
             self.ui.prizeWidget.show()
+            self.ui.bookWidget.close()
+        elif perforType=='出版教材':
+            self.ui.paperWidget.close()
+            self.ui.monographWidget.close()
+            self.ui.projectWidget.close()
+            self.ui.prizeWidget.close()
+            self.ui.bookWidget.show()
+
+
 
     def openFile(self):
         dialog = QFileDialog()

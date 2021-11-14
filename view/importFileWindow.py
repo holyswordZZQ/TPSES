@@ -8,7 +8,7 @@ from controller.operateTeacherInfoByExcelController import operateTeacherInfoByE
 class importFileWindow:
     def __init__(self):
         self.ui = QUiLoader().load('resources/ui/importFileDialog.ui')
-
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
         self.otibe=operateTeacherInfoByExcelController()
 
         self.ui.openFileButton.clicked.connect(self.openFile)

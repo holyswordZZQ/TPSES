@@ -1,0 +1,44 @@
+QWidget{{
+    background-color:white;
+}}
+QLineEdit {{
+    background-color: white;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 0 8px;
+    color:black
+}}
+QComboBox{{
+    background-color: white;
+    border: 1px solid #C0C0C0;
+    border-radius: 6px;
+    padding: 0 8px;
+    color:black;
+}}
+QComboBox::drop-down{{
+    border:none;
+    color:blueviolet;
+}}
+QComboBox::down-arrow{{
+    image: url(icon:/primary/downarrow.svg);
+  margin-right: 10px;
+}}
+QPushButton{{
+    border: 1px solid blueviolet;
+    border-radius: 6px;
+    padding: 0 8px;
+    color:blueviolet;
+}}
+
+QLabel{{
+    color:black;
+    font-style: normal;
+}}
+
+QLabel{{
+  background-color:transparent;
+}}
+
+.bglabel{{
+  background-color:#c8e2fb;
+}}
