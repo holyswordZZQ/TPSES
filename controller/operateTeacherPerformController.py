@@ -38,22 +38,25 @@ class operateTeacherPerformController:
         return str(currentTime.year)+str(currentTime.month)+str(currentTime.day)
 
     def addPerform(self,performDict):   #添加业绩
-        paperTitle, paperAuthor, paperMoneyAmount, paperJournals, paperIF, \
-        monographName, monographBelonged, monographMoneyAmount, \
-        prizeName, prizeAwardingCompany, prizeWinner, prizeAmount, \
-        projectName, projectRequester, projectPrincipal, projectMoneyAmount, \
-        performanceID, type, credit, teacherID, lastUpdateTime, performanceHappenTime, relatedPic, note = \
-        performDict.get("paperTitle"), performDict.get("paperAuthor"), performDict.get("paperMoneyAmount"), performDict.get("paperJournals"), performDict.get("paperIF"), \
-        performDict.get("monographName"), performDict.get("monographBelonged"), performDict.get("monographMoneyAmount"), \
-        performDict.get("prizeName"), performDict.get("prizeAwardingCompany"), performDict.get("prizeWinner"), performDict.get("prizeAmount"), \
-        performDict.get("projectName"), performDict.get("projectRequester"), performDict.get("projectPrincipal"), performDict.get("projectMoneyAmount"), \
-        performDict.get("performanceID"), performDict.get("type"), performDict.get("credit"), performDict.get("teacherID"), performDict.get("lastUpdateTime"), performDict.get("performanceHappenTime"), performDict.get("relatedPic"), performDict.get("note")
+        paperTitle, paperAuthor, paperTime, paperJournals, \
+        monographName, monographBelonged, monographNumber,monographTime, \
+        prizeName, prizeAwardingCompany, prizeProject,\
+        bookNanme,bookPublisher,bookISBN,bookTime,\
+        projectName, projectType, projectIncharge, projectApplerRole,projectTime, \
+        performanceID, type, credit, teacherID, lastUpdateTime,relatedPic, note = \
+        performDict.get("paperTitle"), performDict.get("paperAuthor"), performDict.get("paperTime"), performDict.get("paperJournals"), \
+        performDict.get("monographName"), performDict.get("monographBelonged"), performDict.get("monographNumber"),performDict.get("monographTime"), \
+        performDict.get("prizeName"), performDict.get("prizeAwardingCompany"), performDict.get("prizeProject"),\
+        performDict.get("projectName"), performDict.get("projectType"), performDict.get("projectIncharge"), performDict.get("projectApplerRole"),performDict.get("projectTime"), \
+        performDict.get('bookName'),performDict.get('bookPublisher'),performDict.get('bookISBN'),performDict.get('bookTime'),\
+        performDict.get("performanceID"), performDict.get("type"), performDict.get("credit"), performDict.get("teacherID"), performDict.get("lastUpdateTime"),  performDict.get("relatedPic"), performDict.get("note")
 
-        performance = teacherPerformance(paperTitle, paperAuthor, paperMoneyAmount, paperJournals, paperIF, \
-        monographName, monographBelonged, monographMoneyAmount, \
-        prizeName, prizeAwardingCompany, prizeWinner, prizeAmount, \
-        projectName, projectRequester, projectPrincipal, projectMoneyAmount, \
-        performanceID, type, credit, teacherID, lastUpdateTime, performanceHappenTime,relatedPic, note)
+        performance = teacherPerformance(paperTitle, paperAuthor, paperTime, paperJournals, \
+        monographName, monographBelonged, monographNumber,monographTime, \
+        prizeName, prizeAwardingCompany, prizeProject,\
+        bookNanme,bookPublisher,bookISBN,bookTime,\
+        projectName, projectType, projectIncharge, projectApplerRole,projectTime, \
+        performanceID, type, credit, teacherID, lastUpdateTime,relatedPic, note)
         self.tpm.addTeacherPerformance(performance,performanceID)
 
     def getPerforIDByTxt(self):
@@ -92,17 +95,16 @@ class operateTeacherPerformController:
             performInfoDict['credit']=performance.credit
             performInfoDict['teacherID']=performance.teacherID
             performInfoDict['lastUpdateTime']=performance.lastUpdateTime
-            performInfoDict['performanceHappenTime']=performance.performanceHappenTime
             performInfoDict['note']=performance.note
             if performance.type=='论文':
                 performInfoDict['paperTitle']=performance.paperTitle
                 performInfoDict['paperAuthor']=performance.paperAuthor
-                performInfoDict['paperMoneyAmount']=performance.paperMoneyAmount
+                performInfoDict['paperTime']=performance.paperTime
                 performInfoDict['paperJournals']=performance.paperJournals
-                performInfoDict['paperIF']=performance.paperIF
                 performInfoDict['monographName']='无'
                 performInfoDict['monographBelonged']='无'
-                performInfoDict['monographMoneyAmount']='无'
+                performInfoDict['monographNumber']='无'
+                performInfoDict['monographTime']='无'
                 performInfoDict['prizeName']='无'
                 performInfoDict['prizeAwardingCompany']='无'
                 performInfoDict['prizeWinner']='无'

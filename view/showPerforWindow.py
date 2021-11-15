@@ -81,9 +81,7 @@ class showPerforWindow:
                     perforType.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount, 3, perforType)
 
-                    perforHappenTime=QTableWidgetItem(performance.performanceHappenTime)
-                    perforHappenTime.setTextAlignment(Qt.AlignHCenter)
-                    self.ui.table.setItem(rowcount,4,perforHappenTime)
+
 
     def refreshTableByConditions(self,index=None,periodTime=None):  #根据三个筛选框的条件来改变表格中的内容
         moneyText=self.ui.moneyComboBox.currentText()
