@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>748</width>
-    <height>675</height>
+    <width>841</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>160</x>
      <y>80</y>
      <width>621</width>
-     <height>621</height>
+     <height>535</height>
     </rect>
    </property>
    <property name="font">
@@ -59,9 +59,9 @@
   <widget class="QPushButton" name="addperforButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>330</y>
-     <width>101</width>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -69,30 +69,12 @@
     <string>业绩录入</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>131</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>单击表项查看</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>100</y>
-     <width>161</width>
+     <y>10</y>
+     <width>251</width>
      <height>31</height>
     </rect>
    </property>
@@ -102,15 +84,15 @@
     </font>
    </property>
    <property name="text">
-    <string>业绩具体信息</string>
+    <string>单击表项查看业绩具体信息</string>
    </property>
   </widget>
   <widget class="QPushButton" name="returnButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>470</y>
-     <width>101</width>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -121,7 +103,7 @@
   <widget class="QComboBox" name="perforTypeComboBox">
    <property name="geometry">
     <rect>
-     <x>484</x>
+     <x>522</x>
      <y>60</y>
      <width>101</width>
      <height>21</height>
@@ -156,9 +138,9 @@
   <widget class="QPushButton" name="exportButton">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>400</y>
-     <width>101</width>
+     <width>111</width>
      <height>41</height>
     </rect>
    </property>
@@ -170,7 +152,7 @@
    <property name="geometry">
     <rect>
      <x>677</x>
-     <y>20</y>
+     <y>5</y>
      <width>71</width>
      <height>28</height>
     </rect>
@@ -182,7 +164,7 @@
   <widget class="QComboBox" name="moneyComboBox">
    <property name="geometry">
     <rect>
-     <x>383</x>
+     <x>422</x>
      <y>60</y>
      <width>101</width>
      <height>21</height>
@@ -214,34 +196,13 @@
     </property>
    </item>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>157</x>
-     <y>50</y>
-     <width>131</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>8</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>选中ID可查看业绩详情</string>
-   </property>
-  </widget>
   <widget class="QComboBox" name="happenTimeComboBox">
    <property name="geometry">
     <rect>
-     <x>617</x>
+     <x>624</x>
      <y>60</y>
      <width>131</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="editable">
@@ -278,6 +239,46 @@
     </property>
    </item>
   </widget>
+  <widget class="QLabel" name="divideLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>841</width>
+     <height>591</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="imageLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>294</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::PlainText</enum>
+   </property>
+  </widget>
+  <zorder>divideLabel</zorder>
+  <zorder>label_2</zorder>
+  <zorder>refreshButton</zorder>
+  <zorder>imageLabel</zorder>
+  <zorder>table</zorder>
+  <zorder>moneyComboBox</zorder>
+  <zorder>perforTypeComboBox</zorder>
+  <zorder>happenTimeComboBox</zorder>
+  <zorder>addperforButton</zorder>
+  <zorder>exportButton</zorder>
+  <zorder>returnButton</zorder>
  </widget>
  <resources/>
  <connections/>

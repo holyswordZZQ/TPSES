@@ -8,6 +8,7 @@ from controller.operateTeacherInfoByExcelController import operateTeacherInfoByE
 class exportTeacherInfoWindow:
     def __init__(self,data):
         self.ui = QUiLoader().load('resources/ui/exportTeacherInfoDialog.ui')
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
         self.data=data
 
         self.otibe = operateTeacherInfoByExcelController()

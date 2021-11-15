@@ -1,15 +1,17 @@
-from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem
+import os
+
+from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton, QPlainTextEdit, QMessageBox, QTableWidgetItem, \
+    QMenu
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtCore import QFile, QSize
-from PySide6.QtGui import Qt, QPixmap, QPicture,QIcon
+from PySide6.QtGui import Qt, QPixmap, QPicture, QIcon, QCursor, QBrush
 from controller.operateTeacherInfoController import operateTeacherInfoController
 from view.showPerforWindow import showPerforWindow
 from view.addInfoWindow import addInfoWindow
 from view.modifyDetailWindow import modifyDetailWindow
 from view.importFileWindow import importFileWindow
 from view.exportTeacherInfoWindow import exportTeacherInfoWindow
-
-
+from qt_material import apply_stylesheet, QtStyleTools
 
 
 class teacherInfoWindow:  # 二级功能界面设计
@@ -20,24 +22,50 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.data = self.otic.getTeacherInfo()
         #ui设置
         self.ui = QUiLoader().load('resources/ui/showTeacherInfoWindow.ui')
+        apply_stylesheet(self.ui,'light_blue.xml',invert_secondary=True)
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
+        stylesheet = self.ui.styleSheet()
+        with open('resources/1.css') as file:
+            stlst=file.read().format(**os.environ)
+            self.ui.setStyleSheet(stylesheet+stlst)
+        print(stylesheet)
         self.image=QPixmap()
-        self.image.load('resources/images/teacherInfoWindow.png')
+        self.image.load('resources/images/yun.png')
+        self.logo=QPixmap()
+        self.logo.load('resources/images/jlulogo.png')
         self.ui.imageLabel.setPixmap(self.image)
+        self.ui.divideLabel.setProperty('class','bglabel')
+        self.ui.logoLabel.setPixmap(self.logo)
         self.flag=1             #flag控制排序
         self.button1=QIcon('resources/images/三角1.svg')
         self.button2=QIcon('resources/images/三角2.svg')
 
+        self.ui.table.setContextMenuPolicy(Qt.CustomContextMenu)  #设置表格允许右键菜单
+        self.ui.table.customContextMenuRequested.connect(self.showMenu)  #显示菜单
+        self.ui.table.setProperty('class','table')
+
+        self.contextMenu = QMenu(self.ui)  #定义菜单对象
+        self.addTeacherInfo=self.contextMenu.addAction('添加教师信息')  #添加菜单中的信息
+        self.modifyTeacherInfo=self.contextMenu.addAction('修改教师信息')
+        self.deleteTeacherInfo=self.contextMenu.addAction('删除教师信息')
+        self.getPerformance=self.contextMenu.addAction('查看业绩')
+        self.addTeacherInfo.triggered.connect(self.goToAdd)  #绑定菜单中每项信息的事件
+        self.modifyTeacherInfo.triggered.connect(self.goToDetailmodify)
+        self.deleteTeacherInfo.triggered.connect(self.goToDelete)
+        self.getPerformance.triggered.connect(self.gotoPerform)
+
         self.ui.comboBox_xueyuan.currentIndexChanged.connect(self.refreshTableByConditions)
         self.ui.comboBox_zhicheng.currentIndexChanged.connect(self.refreshTableByConditions)
         self.ui.search_button.clicked.connect(self.refreshTableByConditions)
+        self.ui.search_button.setProperty('class','big_button')
         self.ui.search_text.returnPressed.connect(self.refreshTableByConditions)   # 设置回车连接
-        self.ui.add_account_button.clicked.connect(self.goToAdd)
-        self.ui.deleteButton.clicked.connect(self.goToDelete)
-        self.ui.modify_account_button.clicked.connect(self.goToDetailmodify)
         self.ui.refreshButton.clicked.connect(self.refresh)
-        self.ui.searchButton.clicked.connect(self.gotoPerform)
+        self.ui.searchButton.clicked.connect(self.gotoAllPerform)
+        self.ui.searchButton.setProperty('class','success')
         self.ui.excelImportButton.clicked.connect(self.excelImport)
+        self.ui.excelImportButton.setProperty('class','danger')
         self.ui.exportButton.clicked.connect(self.excelExport)
+        self.ui.exportButton.setProperty('class','warning')
 
 
         self.show_all_information()
@@ -49,6 +77,10 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.exportteacherinfowindow=None
 
     # 将列表中所有教师的简略基本信息显示在表格中
+    def showMenu(self,pos):
+        print(pos)
+        self.contextMenu.exec_(QCursor.pos())
+
     def show_all_information(self):
         self.ui.table.setSortingEnabled(False)
         count=self.ui.table.rowCount()
@@ -115,6 +147,11 @@ class teacherInfoWindow:  # 二级功能界面设计
         self.showperforwindow = showPerforWindow(list)
         self.showperforwindow.ui.show()
 
+    def gotoAllPerform(self):
+        list=[]
+        self.showperforwindow=showPerforWindow(list)
+        self.showperforwindow.ui.show()
+
     def goToAdd(self):  #添加信息界面
         self.addInfoWindow.ui.show()
 
@@ -123,8 +160,10 @@ class teacherInfoWindow:  # 二级功能界面设计
         if len(selectedItems)==1:
             self.modifyDetailWindow=modifyDetailWindow(selectedItems[0],self.data)
             self.modifyDetailWindow.ui.show()
-        else:
+        elif len(selectedItems)>1:
             QMessageBox.warning(self.ui,'出错啦！','你不能一次修改多个老师的信息噢')
+        elif len(selectedItems)==0:
+            QMessageBox.warning(self.ui,'出错啦','请选中要修改的教师信息')
 
     def goToDelete(self):
         list=self.getSelectedRanges()
@@ -132,6 +171,8 @@ class teacherInfoWindow:  # 二级功能界面设计
         if list!=None and list!=[]:
             self.otic.deleteInfo(list)
             QMessageBox.information(self.ui,'操作成功','删除成功')
+        elif len(list)==0:
+            QMessageBox.warning(self.ui,'出错啦','请选中要删除的教师')
 
     def refresh(self):  #刷新信息
         self.data=self.otic.getTeacherInfo()

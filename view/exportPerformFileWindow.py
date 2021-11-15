@@ -4,6 +4,7 @@ from controller.operateTeacherPerformController import operateTeacherPerformCont
 class exportPerformFileWindow:
     def __init__(self,performData):
         self.ui=QUiLoader().load('resources/ui/exportPerformFileWindow.ui')
+        self.ui.setFixedSize(self.ui.width(), self.ui.height())
         self.performData=performData
         self.optc=operateTeacherPerformController()
 
