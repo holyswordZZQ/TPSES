@@ -50,11 +50,6 @@
      <string>业绩类型</string>
     </property>
    </column>
-   <column>
-    <property name="text">
-     <string>发生时间</string>
-    </property>
-   </column>
   </widget>
   <widget class="QPushButton" name="addperforButton">
    <property name="geometry">
@@ -161,41 +156,6 @@
     <string>刷新</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="moneyComboBox">
-   <property name="geometry">
-    <rect>
-     <x>422</x>
-     <y>60</y>
-     <width>101</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>全部</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>0-1000</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>1000-5000</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>5000-10000</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>10000以上</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QComboBox" name="happenTimeComboBox">
    <property name="geometry">
     <rect>
@@ -273,7 +233,6 @@
   <zorder>refreshButton</zorder>
   <zorder>imageLabel</zorder>
   <zorder>table</zorder>
-  <zorder>moneyComboBox</zorder>
   <zorder>perforTypeComboBox</zorder>
   <zorder>happenTimeComboBox</zorder>
   <zorder>addperforButton</zorder>

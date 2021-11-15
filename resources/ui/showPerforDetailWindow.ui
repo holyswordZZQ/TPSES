@@ -28,7 +28,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page">
     <widget class="QWidget" name="paperWidget" native="true">
@@ -97,7 +97,7 @@
        <string>发表时间：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="paperTitleEdit_2">
+     <widget class="QLabel" name="paperTitleEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
