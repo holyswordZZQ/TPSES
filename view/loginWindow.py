@@ -22,7 +22,6 @@ class loginWindow:
         self.ui.setPalette(palette)
         self.mainWindow = mainWindow
 
-
     def loginTonext(self):  # 登录界面点击登录按钮之后
         textname = self.ui.nameEdit.text()  # 所输入的用户名
         textpassword = self.ui.passwordEdit.text()  # 所输入的密码

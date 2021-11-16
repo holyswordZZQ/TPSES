@@ -110,7 +110,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="paperWriterEdit">
+   <widget class="QLineEdit" name="paperAuthorEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -120,7 +120,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="paperJournalEdit">
+   <widget class="QLineEdit" name="paperJournalsEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -130,7 +130,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="paperPublishTimeEdit">
+   <widget class="QLineEdit" name="paperTimeEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -225,7 +225,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="monographWriterEdit">
+   <widget class="QLineEdit" name="monographBelongedEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -235,7 +235,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="monographRegistNumberEdit">
+   <widget class="QLineEdit" name="monographNumberEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -258,7 +258,7 @@
      <string>登记时间：</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="monographRegistTimeEdit">
+   <widget class="QLineEdit" name="monographTimeEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -471,7 +471,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="projectRequesterEdit">
+   <widget class="QLineEdit" name="projectSourceEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -481,7 +481,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="projectPrincipalEdit">
+   <widget class="QLineEdit" name="projectInchargeEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -491,7 +491,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="projectRegisterRoleEdit">
+   <widget class="QLineEdit" name="projectApplyerRoleEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -537,7 +537,7 @@
      <string>申报日期：</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="projectTimeEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -777,7 +777,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="bookPublicationEdit">
+   <widget class="QLineEdit" name="bookPublisherEdit">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -797,7 +797,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="bookPublicationTimeEdit">
+   <widget class="QLineEdit" name="bookTimeEdit">
     <property name="geometry">
      <rect>
       <x>210</x>

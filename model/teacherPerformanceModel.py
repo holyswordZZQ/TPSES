@@ -11,29 +11,25 @@ class teacherPerformanceModel:
             with open("resources/performanceData/" + filename, 'r', encoding='utf-8') as f:
                 performDict = json.load(f)
 
-                paperTitle, paperAuthor, paperMoneyAmount, paperJournals, paperIF, \
-                monographName, monographBelonged, monographMoneyAmount, \
-                prizeName, prizeAwardingCompany, prizeWinner, prizeAmount, \
-                projectName, projectRequester, projectPrincipal, projectMoneyAmount, \
-                performanceID, type, credit, teacherID, lastUpdateTime, performanceHappenTime, relatedPic, note = \
-                    performDict.get("paperTitle"), performDict.get("paperAuthor"), performDict.get(
-                        "paperMoneyAmount"), performDict.get("paperJournals"), performDict.get("paperIF"), \
-                    performDict.get("monographName"), performDict.get("monographBelonged"), performDict.get(
-                        "monographMoneyAmount"), \
-                    performDict.get("prizeName"), performDict.get("prizeAwardingCompany"), performDict.get(
-                        "prizeWinner"), performDict.get("prizeAmount"), \
-                    performDict.get("projectName"), performDict.get("projectRequester"), performDict.get(
-                        "projectPrincipal"), performDict.get("projectMoneyAmount"), \
-                    performDict.get("performanceID"), performDict.get("type"), performDict.get(
-                        "credit"), performDict.get("teacherID"), performDict.get("lastUpdateTime"), performDict.get(
-                        "performanceHappenTime"), performDict.get("relatedPic"), performDict.get("note")
+                paperTitle, paperAuthor, paperTime, paperJournals, \
+                monographName, monographBelonged, monographNumber, monographTime, \
+                prizeName, prizeAwardingCompany, prizeProject, \
+                projectName, projectType, projectSource, projectIncharge, projectApplyerRole, projectTime, \
+                bookName, bookPublisher, bookISBN, bookTime, \
+                performanceID, type, credit, teacherID, lastUpdateTime, relatedPic, note= \
+                    performDict.get("paperTitle"), performDict.get("paperAuthor"), performDict.get("paperTime"), performDict.get("paperJournals"), \
+                    performDict.get("monographName"), performDict.get("monographBelonged"), performDict.get("monographNumber"),performDict.get("monographTime"), \
+                    performDict.get("prizeName"), performDict.get("prizeAwardingCompany"), performDict.get("prizeProject"), \
+                    performDict.get("projectName"), performDict.get("projectType"), performDict.get("projectSource"), performDict.get("projectIncharge"),performDict.get("projectApplyerRole"),performDict.get('projectTime'),\
+                    performDict.get('bookName'),performDict.get('bookPublisher'),performDict.get('bookISBN'),performDict.get('bookTime'),\
+                    performDict.get("performanceID"), performDict.get("type"), performDict.get("credit"), performDict.get("teacherID"), performDict.get("lastUpdateTime"),  performDict.get("relatedPic"), performDict.get("note")\
 
-                performance = teacherPerformance(paperTitle, paperAuthor, paperMoneyAmount, paperJournals, paperIF, \
-                monographName, monographBelonged, monographMoneyAmount, \
-                prizeName, prizeAwardingCompany, prizeWinner, prizeAmount, \
-                projectName, projectRequester, projectPrincipal, projectMoneyAmount, \
-                performanceID, type, credit, teacherID, lastUpdateTime,
-                performanceHappenTime, relatedPic, note)
+                performance = teacherPerformance(paperTitle,paperAuthor,paperTime,paperJournals,\
+                 monographName,monographBelonged,monographNumber,monographTime,\
+                 prizeName,prizeAwardingCompany,prizeProject,\
+                 projectName,projectType,projectSource,projectIncharge,projectApplyerRole,projectTime,\
+                 bookName,bookPublisher,bookISBN,bookTime,\
+                 performanceID,type,credit,teacherID,lastUpdateTime,relatedPic,note)
                 performancesList.append(performance)
         return performancesList
 
@@ -70,25 +66,35 @@ class teacherPerformanceModel:
                 "type": performance.type,
                 "teacherID": performance.teacherID,
                 "lastUpdateTime": performance.lastUpdateTime,
-                "performanceHappenTime": performance.performanceHappenTime,
                 "relatedPic": performance.relatedPic,
                 "note": performance.note,
+
                 "paperTitle": performance.paperTitle,
                 "paperAuthor": performance.paperAuthor,
-                "paperMoneyAmount": performance.paperMoneyAmount,
+                "paperTime": performance.paperTime,
                 "paperJournals": performance.paperJournals,
-                "paperIF": performance.paperIF,
+
                 "monographName": performance.monographName,
                 "monographBelonged": performance.monographBelonged,
-                "monographMoneyAmount": performance.monographMoneyAmount,
+                "monographNumber": performance.monographNumber,
+                "monographTime":performance.monographTime,
+
                 "prizeName": performance.prizeName,
                 "prizeAwardingCompany": performance.prizeAwardingCompany,
-                "prizeWinner": performance.prizeWinner,
-                "prizeAmount": performance.prizeAmount,
+                "prizeProject": performance.prizeProject,
+
+
                 "projectName": performance.projectName,
-                "projectRequester": performance.projectRequester,
-                "projectPrincipal": performance.projectPrincipal,
-                "projectMoneyAmount": performance.projectMoneyAmount
+                "projectType": performance.projectType,
+                "projectSource": performance.projectSource,
+                "projectIncharge":performance.projectIncharge,
+                "projectApplyerRole":performance.projectApplyerRole,
+                "projectTime": performance.projectTime,
+
+                "bookName":performance.bookName,
+                "bookPublisher":performance.bookPublisher,
+                "bookISBN":performance.bookISBN,
+                "bookTime":performance.bookTime
             }
             json.dump(dict,f)
             #self.performances=self.getAllTeacherPerformances()

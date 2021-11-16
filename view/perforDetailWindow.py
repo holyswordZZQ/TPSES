@@ -35,35 +35,48 @@ class perforDetailWindow:
             self.ui.monographWidget.close()
             self.ui.projectWidget.close()
             self.ui.prizeWidget.close()
-            self.ui.paperTitleEdit_2.setText(performance.paperTitle)
+
+            self.ui.paperTitleEdit.setText(performance.paperTitle)
             self.ui.paperAuthorEdit.setText(performance.paperAuthor)
             self.ui.paperJournalsEdit.setText(performance.paperJournals)
-            self.ui.paperTimeEdit.setText(performance.paperMoneyAmount)
+            self.ui.paperTimeEdit.setText(performance.paperTime)
         elif perforType=='软著':
             self.ui.paperWidget.close()
             self.ui.monographWidget.show()
             self.ui.projectWidget.close()
             self.ui.prizeWidget.close()
-            self.ui.monographNameEdit_2.setText(performance.monographName)
+
+            self.ui.monographTimeEdit.setText(performance.monographTime)
+            self.ui.monographNameEdit.setText(performance.monographName)
             self.ui.monographAuthorEdit.setText(performance.monographBelonged)
-            self.ui.monographMoneyAmountEdit_2.setText(performance.monographMoneyAmount)
+            self.ui.monographNumberEdit.setText(performance.monographNumber)
+
         elif perforType=='项目':
             self.ui.paperWidget.close()
             self.ui.monographWidget.close()
             self.ui.projectWidget.show()
             self.ui.prizeWidget.close()
-            self.ui.projectNameEdit_2.setText(performance.projectName)
-            self.ui.projectRequesterEdit_2.setText(performance.projectRequester)
-            self.ui.projectPrincipalEdit_2.setText(performance.projectPrincipal)
-            self.ui.projectMoneyAmountEdit_2.setText(performance.projectMoneyAmount)
+
+            self.ui.projectTypeEdit.setText(performance.projectType)
+            self.ui.projectTimeEdit.setText(performance.projectTime)
+            self.ui.projectNameEdit.setText(performance.projectName)
+            self.ui.projectApplyerRoleEdit.setText(performance.projectApplyerRole)
+            self.ui.projectInchargeEdit.setText(performance.projectIncharge)
+            self.ui.projectSourceEdit.setText(performance.projectSource)
         elif perforType=='获奖':
             self.ui.paperWidget.close()
             self.ui.monographWidget.close()
             self.ui.projectWidget.close()
             self.ui.prizeWidget.show()
-            self.ui.prizeNameEdit_5.setText(performance.prizeName)
-            self.ui.prizeWinnerEdit_5.setText(performance.prizeWinner)
-            self.ui.prizeMoneyAmountEdit_5.setText(performance.prizeAmount)
+
+            self.ui.prizeNameEdit.setText(performance.prizeName)
+            self.ui.prizeAwardingCompanyEdit.setText(performance.prizeWinner)
+            self.ui.prizeProjectEdit.setText(performance.prizeProjectEdit)
+        elif perforType=='出版教材':
+            self.ui.bookNameEdit.setText(performance.bookName)
+            self.ui.bookPublisherEdit.setText(performance.bookPublisher)
+            self.ui.bookISBNEdit.setText(performance.bookISBNEdit)
+            self.ui.bookTimeEdit.setText(performance.bookTime)
         else:
             self.ui.paperWidget.show()
             self.ui.monographWidget.close()
@@ -71,7 +84,6 @@ class perforDetailWindow:
             self.ui.prizeWidget.close()
         self.ui.teacherIDEdit.setText(performance.teacherID)
         self.ui.perforTypeEdit.setText(performance.type)
-        self.ui.happenTimeEdit.setText(performance.performanceHappenTime)
         self.ui.noteEdit.setText(performance.note)
         self.ui.creditEdit.setText(performance.credit)
 

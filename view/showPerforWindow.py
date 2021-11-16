@@ -44,9 +44,8 @@ class showPerforWindow:
         self.ui.addperforButton.clicked.connect(self.goToAddPerform)
         self.ui.returnButton.clicked.connect(self.returnprefer)
         self.ui.refreshButton.clicked.connect(self.refresh)
-        self.ui.moneyComboBox.currentIndexChanged.connect(self.refreshTableByConditions)  #三个筛选框
         self.ui.perforTypeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
-        self.ui.happenTimeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
+        # self.ui.happenTimeComboBox.currentIndexChanged.connect(self.refreshTableByConditions)
         self.ui.exportButton.clicked.connect(self.exportPerform)
         self.ui.addperforButton.setProperty('class','danger')
         self.ui.returnButton.setProperty('class','warning')
@@ -81,16 +80,10 @@ class showPerforWindow:
                     perforType.setTextAlignment(Qt.AlignHCenter)
                     self.ui.table.setItem(rowcount, 3, perforType)
 
-                    perforHappenTime=QTableWidgetItem(performance.performanceHappenTime)
-                    perforHappenTime.setTextAlignment(Qt.AlignHCenter)
-                    self.ui.table.setItem(rowcount,4,perforHappenTime)
+
 
     def refreshTableByConditions(self,index=None,periodTime=None):  #根据三个筛选框的条件来改变表格中的内容
-        moneyText=self.ui.moneyComboBox.currentText()
-        if moneyText=='10000以上':  #将金额超过1w的业绩设置为10000——最大
-            moneyText='10000-'+str(sys.maxsize)
-        elif moneyText=='全部':  #金额筛选条件为全部时，设置为'0-0'以方便后续的比较操作
-            moneyText='0-0'
+
         perforTypeText=self.ui.perforTypeComboBox.currentText()
         happenTimeText=self.ui.happenTimeComboBox.currentText()
         if periodTime==None:
