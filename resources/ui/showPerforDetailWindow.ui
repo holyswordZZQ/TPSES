@@ -198,7 +198,7 @@
        <string>颁布单位：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="prizeNameEdit_5">
+     <widget class="QLabel" name="prizeNameEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -211,7 +211,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="prizeWinnerEdit_5">
+     <widget class="QLabel" name="prizeProjectEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -224,7 +224,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="prizeMoneyAmountEdit_5">
+     <widget class="QLabel" name="prizeAwardingCompanyEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -299,7 +299,7 @@
        <string>申报人担任职务：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="projectNameEdit_2">
+     <widget class="QLabel" name="projectNameEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -312,20 +312,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="projectMoneyAmountEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>200</x>
-        <y>290</y>
-        <width>191</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="projectPrincipalEdit_2">
+     <widget class="QLabel" name="projectInchargeEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -338,7 +325,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="projectRequesterEdit_2">
+     <widget class="QLabel" name="projectSourceEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -377,7 +364,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="projectRequesterRole">
+     <widget class="QLabel" name="projectApplyerRoleEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -403,7 +390,7 @@
        <string>申报日期：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="projectApplyTime">
+     <widget class="QLabel" name="projectTimeEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -465,7 +452,7 @@
        <string>登记号：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="monographNameEdit_2">
+     <widget class="QLabel" name="monographNameEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -478,7 +465,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="monographMoneyAmountEdit_2">
+     <widget class="QLabel" name="monographNumberEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -517,7 +504,7 @@
        <string>登记时间：</string>
       </property>
      </widget>
-     <widget class="QLabel" name="monographRegisTimeEdit">
+     <widget class="QLabel" name="monographTimeEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -605,7 +592,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="bookPublishEdit">
+     <widget class="QLabel" name="bookPublisherEdit">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -631,7 +618,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="bookPublishTimeEdit">
+     <widget class="QLabel" name="bookTimeEdit">
       <property name="geometry">
        <rect>
         <x>160</x>

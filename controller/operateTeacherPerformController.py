@@ -23,10 +23,9 @@ class operateTeacherPerformController:
     def turnTeacherIdToPerformIdList(self,teacherIDList):   #将教师ID转化为业绩ID
         return self.tpm.getTeacherPerformIDList(teacherIDList)
 
-    def isIDOrTimeRight(self,textID,textTime):   #通过正则表达式判断输入的ID以及时间是否符合规范
+    def isIDOrTimeRight(self,textID):   #通过正则表达式判断输入的ID以及时间是否符合规范
         reIDState = re.match('\d\d\d\d\d\d\d\d', textID)  # 正则表达式，要求输入的id符合8位数字
-        reTimeState = re.match('[1-9]\d{3}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])', textTime)
-        if reIDState==None or reTimeState==None:
+        if reIDState==None:
             return 0
         elif textID not in self.tim.getAllTeacherID():
             return 1
@@ -41,22 +40,22 @@ class operateTeacherPerformController:
         paperTitle, paperAuthor, paperTime, paperJournals, \
         monographName, monographBelonged, monographNumber,monographTime, \
         prizeName, prizeAwardingCompany, prizeProject,\
-        bookNanme,bookPublisher,bookISBN,bookTime,\
-        projectName, projectType, projectIncharge, projectApplerRole,projectTime, \
+        projectName, projectType, projectIncharge,projectSource, projectApplyerRole,projectTime, \
+        bookName, bookPublisher, bookISBN, bookTime, \
         performanceID, type, credit, teacherID, lastUpdateTime,relatedPic, note = \
         performDict.get("paperTitle"), performDict.get("paperAuthor"), performDict.get("paperTime"), performDict.get("paperJournals"), \
         performDict.get("monographName"), performDict.get("monographBelonged"), performDict.get("monographNumber"),performDict.get("monographTime"), \
         performDict.get("prizeName"), performDict.get("prizeAwardingCompany"), performDict.get("prizeProject"),\
-        performDict.get("projectName"), performDict.get("projectType"), performDict.get("projectIncharge"), performDict.get("projectApplerRole"),performDict.get("projectTime"), \
+        performDict.get("projectName"), performDict.get("projectType"), performDict.get("projectIncharge"), performDict.get('projectSource'),performDict.get("projectApplerRole"),performDict.get("projectTime"), \
         performDict.get('bookName'),performDict.get('bookPublisher'),performDict.get('bookISBN'),performDict.get('bookTime'),\
         performDict.get("performanceID"), performDict.get("type"), performDict.get("credit"), performDict.get("teacherID"), performDict.get("lastUpdateTime"),  performDict.get("relatedPic"), performDict.get("note")
 
-        performance = teacherPerformance(paperTitle, paperAuthor, paperTime, paperJournals, \
-        monographName, monographBelonged, monographNumber,monographTime, \
-        prizeName, prizeAwardingCompany, prizeProject,\
-        bookNanme,bookPublisher,bookISBN,bookTime,\
-        projectName, projectType, projectIncharge, projectApplerRole,projectTime, \
-        performanceID, type, credit, teacherID, lastUpdateTime,relatedPic, note)
+        performance = teacherPerformance(paperTitle,paperAuthor,paperTime,paperJournals,\
+                 monographName,monographBelonged,monographNumber,monographTime,\
+                 prizeName,prizeAwardingCompany,prizeProject,\
+                 projectName,projectType,projectSource,projectIncharge,projectApplyerRole,projectTime,\
+                 bookName,bookPublisher,bookISBN,bookTime,\
+                 performanceID,type,credit,teacherID,lastUpdateTime,relatedPic,note)
         self.tpm.addTeacherPerformance(performance,performanceID)
 
     def getPerforIDByTxt(self):
@@ -88,6 +87,7 @@ class operateTeacherPerformController:
     def exportPerformToExcel(self,performanceIDList,filename):
         performData=self.tpm.getTeacherPerformance(performIDList=performanceIDList,perforID='0')
         performInfoDictList=[]
+        order=[]
         for performance in performData:
             performInfoDict={}
             performInfoDict['performanceID']=performance.performanceID
@@ -101,73 +101,42 @@ class operateTeacherPerformController:
                 performInfoDict['paperAuthor']=performance.paperAuthor
                 performInfoDict['paperTime']=performance.paperTime
                 performInfoDict['paperJournals']=performance.paperJournals
-                performInfoDict['monographName']='无'
-                performInfoDict['monographBelonged']='无'
-                performInfoDict['monographNumber']='无'
-                performInfoDict['monographTime']='无'
-                performInfoDict['prizeName']='无'
-                performInfoDict['prizeAwardingCompany']='无'
-                performInfoDict['prizeWinner']='无'
-                performInfoDict['prizeAmount']='无'
-                performInfoDict['projectName']='无'
-                performInfoDict['projectRequester']='无'
-                performInfoDict['projectPrincipal']='无'
-                performInfoDict['projectMoneyAmount']='无'
+                for k in performInfoDict:
+                    order.append(k)
             elif performance.type=='软著':
-                performInfoDict['paperTitle'] = '无'
-                performInfoDict['paperAuthor'] = '无'
-                performInfoDict['paperMoneyAmount'] = '无'
-                performInfoDict['paperJournals'] = '无'
-                performInfoDict['paperIF'] = '无'
                 performInfoDict['monographName'] = performance.monographName
                 performInfoDict['monographBelonged'] = performance.monographBelonged
-                performInfoDict['monographMoneyAmount'] = performance.monographMoneyAmount
-                performInfoDict['prizeName'] = '无'
-                performInfoDict['prizeAwardingCompany'] = '无'
-                performInfoDict['prizeWinner'] = '无'
-                performInfoDict['prizeAmount'] = '无'
-                performInfoDict['projectName'] = '无'
-                performInfoDict['projectRequester'] = '无'
-                performInfoDict['projectPrincipal'] = '无'
-                performInfoDict['projectMoneyAmount'] = '无'
+                performInfoDict['monographNumber'] = performance.monographNumber
+                performInfoDict['monographTime'] = performance.monographTime
+                for k in performInfoDict:
+                    order.append(k)
             elif performance.type=='获奖':
-                performInfoDict['paperTitle'] = '无'
-                performInfoDict['paperAuthor'] = '无'
-                performInfoDict['paperMoneyAmount'] = '无'
-                performInfoDict['paperJournals'] = '无'
-                performInfoDict['paperIF'] = '无'
-                performInfoDict['monographName'] = '无'
-                performInfoDict['monographBelonged'] = '无'
-                performInfoDict['monographMoneyAmount'] = '无'
                 performInfoDict['prizeName'] = performance.prizeName
                 performInfoDict['prizeAwardingCompany'] = performance.prizeAwardingCompany
-                performInfoDict['prizeWinner'] = performance.prizeWinner
-                performInfoDict['prizeAmount'] = performance.prizeAmount
-                performInfoDict['projectName'] = '无'
-                performInfoDict['projectRequester'] = '无'
-                performInfoDict['projectPrincipal'] = '无'
-                performInfoDict['projectMoneyAmount'] = '无'
+                performInfoDict['prizeProject'] = performance.prizeProject
+                for k in performInfoDict:
+                    order.append(k)
             elif performance.type=='项目':
-                performInfoDict['paperTitle'] = '无'
-                performInfoDict['paperAuthor'] = '无'
-                performInfoDict['paperMoneyAmount'] = '无'
-                performInfoDict['paperJournals'] = '无'
-                performInfoDict['paperIF'] = '无'
-                performInfoDict['monographName'] = '无'
-                performInfoDict['monographBelonged'] = '无'
-                performInfoDict['monographMoneyAmount'] = '无'
-                performInfoDict['prizeName'] = '无'
-                performInfoDict['prizeAwardingCompany'] = '无'
-                performInfoDict['prizeWinner'] = '无'
-                performInfoDict['prizeAmount'] = '无'
-                performInfoDict['projectName'] = performance.projectName
-                performInfoDict['projectRequester'] = performance.projectRequester
-                performInfoDict['projectPrincipal'] = performance.projectPrincipal
-                performInfoDict['projectMoneyAmount'] = performance.projectMoneyAmount
 
+                performInfoDict['projectName'] = performance.projectName
+                performInfoDict['projectType'] = performance.projectType
+                performInfoDict['projectSource'] = performance.projectSource
+                performInfoDict['projectIncharge'] = performance.projectIncharge
+                performInfoDict['projectApplyerRole']=performance.projectApplyerRole
+                performInfoDict['projectTime']=performance.projectTime
+
+                for k in performInfoDict:
+                    order.append(k)
+            elif performance.type=='出版教材':
+                performInfoDict['bookName'] = performance.bookName
+                performInfoDict['bookPublisher'] = performance.bookPublisher
+                performInfoDict['bookISBN'] = performance.bookISBN
+                performInfoDict['bookTime'] = performance.bookTime
+                for k in performInfoDict:
+                    order.append(k)
             performInfoDictList.append(performInfoDict)
         pf=pd.DataFrame(performInfoDictList)
-        order=['performanceID','type','credit','teacherID','lastUpdateTime','performanceHappenTime','note','paperTitle','paperAuthor','paperMoneyAmount','paperJournals','paperIF','monographName','monographBelonged','monographMoneyAmount','prizeName','prizeAwardingCompany','prizeWinner','prizeAmount','projectName','projectRequester','projectPrincipal','projectMoneyAmount']
+        order=['performanceID','type','credit','teacherID','lastUpdateTime','note','paperTitle','paperAuthor','paperTime','paperJournals','monographName','monographNumber','monographTime','prizeName','prizeAwardingCompany','prizeProject','prizeAmount','projectName','projectRequester','projectPrincipal','projectMoneyAmount']
         pf=pf[order]
         file_path = pd.ExcelWriter(filename)
         pf.fillna(' ', inplace=True)

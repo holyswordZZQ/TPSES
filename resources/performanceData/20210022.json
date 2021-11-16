@@ -20,8 +20,8 @@
 	"projectName": "\u4eba\u624d\u7f51\u7edc\u53d1\u73b0",
 	"projectType": null,
 	"projectSource":null,
-	"projectRole":null,
+	"projectApplyerRole":null,
 	"projectTime":null,
-	"projectPrincipal": "\u5f20\u8001\u5e08",
-	"projectMoneyAmount": "10000000000000"
+	"projectIncharge": "\u5f20\u8001\u5e08"
+
 }

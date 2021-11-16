@@ -47,9 +47,9 @@ class perforDetailWindow:
             self.ui.prizeWidget.close()
 
             self.ui.monographTimeEdit.setText(performance.monographTime)
-            self.ui.monographNameENdit_2.setText(performance.monographName)
+            self.ui.monographNameEdit.setText(performance.monographName)
             self.ui.monographAuthorEdit.setText(performance.monographBelonged)
-            self.ui.monographNumberEdit_2.setText(performance.monographNumber)
+            self.ui.monographNumberEdit.setText(performance.monographNumber)
 
         elif perforType=='项目':
             self.ui.paperWidget.close()
@@ -60,7 +60,7 @@ class perforDetailWindow:
             self.ui.projectTypeEdit.setText(performance.projectType)
             self.ui.projectTimeEdit.setText(performance.projectTime)
             self.ui.projectNameEdit.setText(performance.projectName)
-            self.ui.projectApplyerEdit.setText(performance.projectApplyer)
+            self.ui.projectApplyerRoleEdit.setText(performance.projectApplyerRole)
             self.ui.projectInchargeEdit.setText(performance.projectIncharge)
             self.ui.projectSourceEdit.setText(performance.projectSource)
         elif perforType=='获奖':
@@ -84,7 +84,6 @@ class perforDetailWindow:
             self.ui.prizeWidget.close()
         self.ui.teacherIDEdit.setText(performance.teacherID)
         self.ui.perforTypeEdit.setText(performance.type)
-        self.ui.happenTimeEdit.setText(performance.performanceHappenTime)
         self.ui.noteEdit.setText(performance.note)
         self.ui.creditEdit.setText(performance.credit)
 

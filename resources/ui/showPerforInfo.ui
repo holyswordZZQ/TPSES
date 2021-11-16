@@ -98,7 +98,7 @@
   <widget class="QComboBox" name="perforTypeComboBox">
    <property name="geometry">
     <rect>
-     <x>522</x>
+     <x>460</x>
      <y>60</y>
      <width>101</width>
      <height>21</height>
@@ -156,49 +156,6 @@
     <string>刷新</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="happenTimeComboBox">
-   <property name="geometry">
-    <rect>
-     <x>624</x>
-     <y>60</y>
-     <width>131</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="editable">
-    <bool>true</bool>
-   </property>
-   <item>
-    <property name="text">
-     <string>全部</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2017-2018</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2018-2019</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2019-2020</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>2020-2021</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>自定义时间段</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QLabel" name="divideLabel">
    <property name="geometry">
     <rect>
@@ -234,7 +191,6 @@
   <zorder>imageLabel</zorder>
   <zorder>table</zorder>
   <zorder>perforTypeComboBox</zorder>
-  <zorder>happenTimeComboBox</zorder>
   <zorder>addperforButton</zorder>
   <zorder>exportButton</zorder>
   <zorder>returnButton</zorder>
