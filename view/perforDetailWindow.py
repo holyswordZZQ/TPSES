@@ -70,12 +70,12 @@ class perforDetailWindow:
             self.ui.prizeWidget.show()
 
             self.ui.prizeNameEdit.setText(performance.prizeName)
-            self.ui.prizeAwardingCompanyEdit.setText(performance.prizeWinner)
-            self.ui.prizeProjectEdit.setText(performance.prizeProjectEdit)
+            self.ui.prizeAwardingCompanyEdit.setText(performance.prizeAwardingCompany)
+            self.ui.prizeProjectEdit.setText(performance.prizeProject)
         elif perforType=='出版教材':
             self.ui.bookNameEdit.setText(performance.bookName)
             self.ui.bookPublisherEdit.setText(performance.bookPublisher)
-            self.ui.bookISBNEdit.setText(performance.bookISBNEdit)
+            self.ui.bookISBNEdit.setText(performance.bookISBN)
             self.ui.bookTimeEdit.setText(performance.bookTime)
         else:
             self.ui.paperWidget.show()

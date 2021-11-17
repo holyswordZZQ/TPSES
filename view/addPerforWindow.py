@@ -1,4 +1,5 @@
 import os
+import re
 
 from view.welcomeWindow import welcomeWindow
 from PySide6.QtWidgets import QMainWindow, QMessageBox, QFileDialog
@@ -137,6 +138,7 @@ class addPerforWindow:
             perfor_dict['bookPublisher']=self.ui.bookPublisherEdit.text()
             perfor_dict['bookISBN']=self.ui.bookISBNEdit.text()
             perfor_dict['bookTime']= self.ui.bookTimeEdit.text()
+
         self.otpc.addPerform(perfor_dict)
         QMessageBox.information(self.ui,'操作成功','业绩信息已录入')
 

@@ -98,9 +98,9 @@
   <widget class="QComboBox" name="perforTypeComboBox">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>520</x>
      <y>60</y>
-     <width>101</width>
+     <width>261</width>
      <height>21</height>
     </rect>
    </property>
@@ -162,7 +162,7 @@
      <x>0</x>
      <y>50</y>
      <width>841</width>
-     <height>591</height>
+     <height>601</height>
     </rect>
    </property>
    <property name="text">

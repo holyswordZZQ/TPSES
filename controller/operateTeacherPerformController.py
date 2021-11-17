@@ -87,9 +87,20 @@ class operateTeacherPerformController:
     def exportPerformToExcel(self,performanceIDList,filename):
         performData=self.tpm.getTeacherPerformance(performIDList=performanceIDList,perforID='0')
         performInfoDictList=[]
-        order=[]
+        paperPerformList=[]
+        monographPerformList=[]
+        prizePerformList=[]
+        projectPerformList=[]
+        bookPerformList=[]
+        otherPerformList=[]
+        orderPaper=[]
+        orderMonograph=[]
+        orderPrize=[]
+        orderProject=[]
+        orderBook=[]
         for performance in performData:
             performInfoDict={}
+            order=[]
             performInfoDict['performanceID']=performance.performanceID
             performInfoDict['type']=performance.type
             performInfoDict['credit']=performance.credit
@@ -101,21 +112,28 @@ class operateTeacherPerformController:
                 performInfoDict['paperAuthor']=performance.paperAuthor
                 performInfoDict['paperTime']=performance.paperTime
                 performInfoDict['paperJournals']=performance.paperJournals
-                for k in performInfoDict:
-                    order.append(k)
+                paperPerformList.append(performInfoDict)
+                if len(orderPaper)==0:
+                    for k in performInfoDict:
+                        orderPaper.append(k)
             elif performance.type=='软著':
                 performInfoDict['monographName'] = performance.monographName
                 performInfoDict['monographBelonged'] = performance.monographBelonged
                 performInfoDict['monographNumber'] = performance.monographNumber
                 performInfoDict['monographTime'] = performance.monographTime
-                for k in performInfoDict:
-                    order.append(k)
+                monographPerformList.append(performInfoDict)
+                if len(orderMonograph)==0:
+                    for k in performInfoDict:
+                        orderMonograph.append(k)
             elif performance.type=='获奖':
                 performInfoDict['prizeName'] = performance.prizeName
                 performInfoDict['prizeAwardingCompany'] = performance.prizeAwardingCompany
                 performInfoDict['prizeProject'] = performance.prizeProject
-                for k in performInfoDict:
-                    order.append(k)
+                prizePerformList.append(performInfoDict)
+                if len(orderPrize)==0:
+                    for k in performInfoDict:
+                        order.append(k)
+                        orderPrize.append(k)
             elif performance.type=='项目':
 
                 performInfoDict['projectName'] = performance.projectName
@@ -124,25 +142,67 @@ class operateTeacherPerformController:
                 performInfoDict['projectIncharge'] = performance.projectIncharge
                 performInfoDict['projectApplyerRole']=performance.projectApplyerRole
                 performInfoDict['projectTime']=performance.projectTime
-
-                for k in performInfoDict:
-                    order.append(k)
+                projectPerformList.append(performInfoDict)
+                if len(orderProject)==0:
+                    for k in performInfoDict:
+                        orderProject.append(k)
             elif performance.type=='出版教材':
                 performInfoDict['bookName'] = performance.bookName
                 performInfoDict['bookPublisher'] = performance.bookPublisher
                 performInfoDict['bookISBN'] = performance.bookISBN
                 performInfoDict['bookTime'] = performance.bookTime
-                for k in performInfoDict:
-                    order.append(k)
+                bookPerformList.append(performInfoDict)
+                if len(orderBook)==0:
+                    for k in performInfoDict:
+                        orderBook.append(k)
+            elif performance.type=='其它':
+                otherPerformList.append(performInfoDict)
             performInfoDictList.append(performInfoDict)
-        pf=pd.DataFrame(performInfoDictList)
-        order=['performanceID','type','credit','teacherID','lastUpdateTime','note','paperTitle','paperAuthor','paperTime','paperJournals','monographName','monographNumber','monographTime','prizeName','prizeAwardingCompany','prizeProject','prizeAmount','projectName','projectRequester','projectPrincipal','projectMoneyAmount']
-        pf=pf[order]
-        file_path = pd.ExcelWriter(filename)
-        pf.fillna(' ', inplace=True)
-        pf.to_excel(file_path, encoding='utf-8', index=False)
-        workSheet = file_path.sheets['Sheet1']
-        workSheet.set_column('A:W',20)
-        file_path.save()
+        print(otherPerformList)
+        pf1=pd.DataFrame(paperPerformList)
+        pf2=pd.DataFrame(monographPerformList)
+        pf3=pd.DataFrame(prizePerformList)
+        pf4=pd.DataFrame(projectPerformList)
+        pf5=pd.DataFrame(bookPerformList)
+        pf6=pd.DataFrame(otherPerformList)
+        # print(pf1)
+        # print(pf2)
+        # print(pf3)
+        # print(pf4)
+        # print(pf5)
+        print(pf6)
+        orderBase=['performanceID','type','credit','teacherID','lastUpdateTime','note']
+        paperList=['performanceID','type','credit','teacherID','lastUpdateTime','note','paperTitle','paperAuthor','paperTime','paperJournals']
+        monographList=['performanceID','type','credit','teacherID','lastUpdateTime','note','monographName','monographBelonged','monographNumber','monographTime']
+        prizeList=['performanceID','type','credit','teacherID','lastUpdateTime','note','prizeName','prizeAwardingCompany','prizeProject']
+        projectList=['performanceID','type','credit','teacherID','lastUpdateTime','note','projectName','projectType','projectSource','projectIncharge','projectApplyerRole','projectTime']
+        bookList=['performanceID','type','credit','teacherID','lastUpdateTime','note','bookName','bookPublisher','bookISBN','bookTime']
+        otherList=['performanceID','type','credit','teacherID','lastUpdateTime','note']
+        print(paperList)
+        print(monographList)
+        pf1=pf1[paperList]
+        pf2=pf2[monographList]
+        pf3=pf3[prizeList]
+        pf4=pf4[projectList]
+        pf5=pf5[bookList]
+        pf6=pf6[otherList]
+        with pd.ExcelWriter(filename) as writer:
+            pf1.to_excel(writer,sheet_name='论文',encoding='utf-8',index=False)
+            pf2.to_excel(writer,sheet_name='软著',encoding='utf-8',index=False)
+            pf3.to_excel(writer,sheet_name='获奖',encoding='utf-8',index=False)
+            pf4.to_excel(writer,sheet_name='项目',encoding='utf-8',index=False)
+            pf5.to_excel(writer,sheet_name='出版教材',encoding='utf-8',index=False)
+            pf6.to_excel(writer,sheet_name='其它',encoding='utf-8',index=False)
+            for k in writer.sheets:
+                workSheet=writer.sheets[k]
+                workSheet.set_column('A:W',20)
+        # order=['performanceID','type','credit','teacherID','lastUpdateTime','note','paperTitle','paperAuthor','paperTime','paperJournals','monographName','monographNumber','monographTime','prizeName','prizeAwardingCompany','prizeProject','prizeAmount','projectName','projectRequester','projectPrincipal','projectMoneyAmount']
+        # pf=pf[order]
+        # file_path = pd.ExcelWriter(filename)
+        # pf.fillna(' ', inplace=True)
+        # pf.to_excel(file_path, encoding='utf-8', index=False)
+        # workSheet = file_path.sheets['Sheet1']
+        # workSheet.set_column('A:W',20)
+        # file_path.save()
 
 
